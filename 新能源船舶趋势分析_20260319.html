@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新能源船舶行业趋势分析报告 - 2026年3月</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            color: #00d4aa;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(0, 212, 170, 0.4);
+        }
+        .header .subtitle {
+            color: #a8b2d1;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .header .date {
+            color: #64ffda;
+            font-size: 0.95em;
+            background: rgba(100, 255, 218, 0.1);
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .summary-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.2);
+        }
+        .summary-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        .summary-card .value {
+            color: #64ffda;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .summary-card .label {
+            color: #a8b2d1;
+            font-size: 0.9em;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .section-title {
+            color: #fff;
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title.policy { border-color: #f59e0b; }
+        .section-title.trend { border-color: #10b981; }
+        .section-title.opportunity { border-color: #8b5cf6; }
+        .section-title.tech { border-color: #06b6d4; }
+        
+        .insight-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #10b981;
+        }
+        .insight-box .title {
+            color: #34d399;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .insight-box .content {
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+        
+        .trend-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            border-left: 4px solid;
+        }
+        .trend-item:nth-child(1) { border-color: #f59e0b; }
+        .trend-item:nth-child(2) { border-color: #10b981; }
+        .trend-item:nth-child(3) { border-color: #8b5cf6; }
+        .trend-item:nth-child(4) { border-color: #06b6d4; }
+        
+        .trend-item .number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            flex-shrink: 0;
+        }
+        .trend-item:nth-child(1) .number { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .trend-item:nth-child(2) .number { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .trend-item:nth-child(3) .number { background: rgba(139, 92, 246, 0.2); color: #a78bfa; }
+        .trend-item:nth-child(4) .number { background: rgba(6, 182, 212, 0.2); color: #22d3ee; }
+        
+        .trend-item .content h4 {
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .trend-item .content p {
+            color: #a8b2d1;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .data-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        .data-item .value {
+            color: #64ffda;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .data-item .label {
+            color: #8892b0;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #64ffda, #8b5cf6);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #64ffda;
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+        }
+        .timeline-item .time {
+            color: #64ffda;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+        .timeline-item .event {
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #5a6a8a;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 新能源船舶行业趋势分析报告</h1>
+            <div class="subtitle">基于 3月17日-19日 行业资讯深度洞察</div>
+            <div class="date">📅 2026年3月19日</div>
+        </div>
+
+        <div class="summary-cards">
+            <div class="summary-card">
+                <div class="icon">📋</div>
+                <div class="value">21</div>
+                <div class="label">3天内收录新闻条数</div>
+            </div>
+            <div class="summary-card">
+                <div class="icon">🚢</div>
+                <div class="value">127</div>
+                <div class="label">近期签约新能源船舶（艘）</div>
+            </div>
+            <div class="summary-card">
+                <div class="icon">💰</div>
+                <div class="value">4000万</div>
+                <div class="label">单船最高补贴上限（元）</div>
+            </div>
+            <div class="summary-card">
+                <div class="icon">⚓</div>
+                <div class="value">367亿</div>
+                <div class="label">2026年市场规模预测</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title policy">🔑 政策窗口识别</div>
+            
+            <div class="insight-box">
+                <div class="title">⚡ 当前正处于政策红利叠加期</div>
+                <div class="content">
+                    2026年已成为新能源船舶的关键拐点年，<strong>政策补贴、法规倒逼、基础设施</strong>三重驱动共振，行业正从"示范试点"走向"规模化商业运营"。
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">2026年1月</div>
+                    <div class="event">交通部发布《交通运输老旧营运船舶报废更新补贴实施细则》，新能源船最高补贴4000万元/艘</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2026年2月</div>
+                    <div class="event">长三角三省一市签署充换电网络合作协议（2026-2028）</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2026年3月</div>
+                    <div class="event">工信部三部门氢能综合试点启动，每个城市群最高16亿元奖励</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">2026年3月</div>
+                    <div class="event">山东省明确支持济宁打造国内领先内河新能源船舶制造基地</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title trend">📈 四大核心趋势</div>
+            
+            <div class="trend-item">
+                <div class="number">1</div>
+                <div class="content">
+                    <h4>内河纯电 + 远洋甲醇双路线定型</h4>
+                    <p>内河航线以纯电动为主（零排放、低噪音、低成本）；远洋航线以甲醇双燃料为主。2026年技术路线已清晰分化，三种路线（纯电/甲醇/LNG）各自找到了最佳应用场景。</p>
+                </div>
+            </div>
+
+            <div class="trend-item">
+                <div class="number">2</div>
+                <div class="content">
+                    <h4>甲醇船舶进入批量交付期</h4>
+                    <p>中远海运已实现6艘投运、66艘在路上；扬州中远海运重工16000标箱甲醇双燃料集装箱船进入第四艘建造命名阶段。绿色甲醇需求2026-2030年将显著增长。</p>
+                </div>
+            </div>
+
+            <div class="trend-item">
+                <div class="number">3</div>
+                <div class="content">
+                    <h4>订单爆发式增长</h4>
+                    <p>武汉82艘（年减碳超万吨）、山东45艘（超12亿元），近期累计签约127艘新能源船舶。内河船舶电动化呈现明显加速态势。</p>
+                </div>
+            </div>
+
+            <div class="trend-item">
+                <div class="number">4</div>
+                <div class="content">
+                    <h4>氢能船舶进入试点前夜</h4>
+                    <p>工信部三部门氢能综合试点将船舶纳入支持范围，燃料电池系统额定功率须达100kW以上。山东济宁明确研发突破氢燃料电池船舶关键技术。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title opportunity">🎯 投资与布局机会</div>
+            
+            <div class="data-grid">
+                <div class="data-item">
+                    <div class="value">367.5亿</div>
+                    <div class="label">2026年电动船舶市场规模</div>
+                </div>
+                <div class="data-item">
+                    <div class="value">11.2GWh</div>
+                    <div class="label">2026年锂电池需求预测</div>
+                </div>
+                <div class="data-item">
+                    <div class="value">2000万吨</div>
+                    <div class="label">2030年绿色甲醇需求</div>
+                </div>
+                <div class="data-item">
+                    <div class="value">16亿</div>
+                    <div class="label">氢能试点城市群奖励上限</div>
+                </div>
+                <div class="data-item">
+                    <div class="value">70%</div>
+                    <div class="label">中国新接绿色船舶订单份额</div>
+                </div>
+                <div class="data-item">
+                    <div class="value">62%</div>
+                    <div class="label">武汉电动船舶动力系统市占率</div>
+                </div>
+            </div>
+
+            <div class="insight-box" style="margin-top: 25px; border-left-color: #8b5cf6; background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0.05) 100%);">
+                <div class="title" style="color: #a78bfa;">💡 布局建议</div>
+                <div class="content">
+                    <strong>短期（1-2年）：</strong>关注内河电动船舶充换电基础设施、锂电池供应链<br>
+                    <strong>中期（3-5年）：</strong>布局绿色甲醇产能、船舶甲醇双燃料改造<br>
+                    <strong>长期（5-10年）：</strong>储备氢能船舶技术、关注氢燃料电池系统
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title tech">🔬 技术突破方向</div>
+            
+            <div class="trend-item">
+                <div class="number">⚡</div>
+                <div class="content">
+                    <h4>电池快充与换电体系成熟</h4>
+                    <p>纯电动船舶即将进入大规模放量阶段，换电模式（如"河豚蔚蓝01"号）实现标准化，内河充换电网络从"船等桩"转为"桩等船"。</p>
+                </div>
+            </div>
+
+            <div class="trend-item">
+                <div class="number">🧠</div>
+                <div class="content">
+                    <h4>AI深度融合智能驾驶</h4>
+                    <p>智能驾驶舱、船舶智能综合能源管理系统成为行业标配。山东新能船业联合712所发布的船舶智能综合能源管理系统实现能源优化调度。</p>
+                </div>
+            </div>
+
+            <div class="trend-item">
+                <div class="number">🔄</div>
+                <div class="content">
+                    <h4>双燃料/多能源集成成为标配</h4>
+                    <p>船舶动力系统从单一燃料向双燃料、多能源集成演进，灵活性与减排效果兼顾。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📊 报告基于 2026年3月17日-19日 行业资讯整理 | WorkBuddy 自动分析</p>
+        </div>
+    </div>
+</body>
+</html>

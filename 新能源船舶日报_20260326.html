@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新能源船舶日报 | 2026年3月26日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0066FF;
+    --primary-dark: #0052CC;
+    --accent: #00D4AA;
+    --accent2: #7B61FF;
+    --bg: #0a0e27;
+    --card-bg: rgba(255,255,255,0.04);
+    --card-border: rgba(255,255,255,0.08);
+    --text-primary: #F0F4FF;
+    --text-secondary: rgba(240,244,255,0.55);
+    --text-muted: rgba(240,244,255,0.35);
+    --tag-h2: #00D4AA;
+    --tag-h6: #7B61FF;
+    --tag-milestone: #FF6B35;
+    --tag-market: #00BFFF;
+    --tag-policy: #FFD700;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.7;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    position: relative;
+    padding: 72px 24px 56px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,102,255,0.25) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 80% 20%, rgba(123,97,255,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 20% 80%, rgba(0,212,170,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,212,170,0.4), rgba(123,97,255,0.4), transparent);
+  }
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,212,170,0.1);
+    border: 1px solid rgba(0,212,170,0.3);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 30%, rgba(0,212,170,0.9) 70%, rgba(123,97,255,0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  .hero-sub {
+    color: var(--text-secondary);
+    font-size: 15px;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+  .hero-badges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .badge strong { color: var(--accent); }
+
+  /* ---- Container ---- */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* ---- Insight Banner ---- */
+  .insight-banner {
+    background: linear-gradient(135deg, rgba(0,102,255,0.12), rgba(123,97,255,0.12));
+    border: 1px solid rgba(123,97,255,0.25);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .insight-banner::before {
+    content: '💡';
+    font-size: 32px;
+    position: absolute;
+    right: 24px;
+    top: 20px;
+    opacity: 0.3;
+  }
+  .insight-banner h3 {
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .insight-banner p {
+    color: var(--text-secondary);
+    font-size: 13.5px;
+    line-height: 1.8;
+  }
+  .insight-banner p strong { color: var(--accent); }
+
+  /* ---- News Cards ---- */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 28px 30px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+    cursor: default;
+  }
+  .card:hover {
+    border-color: rgba(0,212,170,0.25);
+    transform: translateY(-2px);
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    border-radius: 3px 0 0 3px;
+  }
+  .card.h2::before { background: var(--tag-h2); }
+  .card.h6::before { background: var(--tag-h6); }
+  .card.milestone::before { background: var(--tag-milestone); }
+  .card.market::before { background: var(--tag-market); }
+  .card.policy::before { background: var(--tag-policy); }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .card-tag.h2 { background: rgba(0,212,170,0.12); color: var(--tag-h2); }
+  .card-tag.h6 { background: rgba(123,97,255,0.12); color: var(--tag-h6); }
+  .card-tag.milestone { background: rgba(255,107,53,0.12); color: var(--tag-milestone); }
+  .card-tag.market { background: rgba(0,191,255,0.12); color: var(--tag-market); }
+  .card-tag.policy { background: rgba(255,215,0,0.12); color: var(--tag-policy); }
+
+  .card-date {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 400;
+    flex-shrink: 0;
+  }
+
+  .card h2 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .card-body {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+
+  .card-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .card-table th {
+    background: rgba(255,255,255,0.05);
+    color: var(--accent);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .card-table td {
+    padding: 8px 12px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .card-table tr:last-child td { border-bottom: none; }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .card-source {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--primary);
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    background: rgba(0,102,255,0.1);
+    border: 1px solid rgba(0,102,255,0.2);
+    transition: background 0.2s;
+    font-weight: 500;
+  }
+  .card-link:hover { background: rgba(0,102,255,0.2); }
+
+  /* ---- Deep Insight Section ---- */
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 48px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,212,170,0.3), transparent);
+  }
+
+  .insight-card {
+    background: linear-gradient(135deg, rgba(0,102,255,0.08), rgba(123,97,255,0.06));
+    border: 1px solid rgba(123,97,255,0.2);
+    border-radius: 16px;
+    padding: 28px 30px;
+    margin-bottom: 16px;
+  }
+  .insight-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+  }
+  .insight-card h3 span { color: var(--accent); }
+  .insight-card p {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.85;
+    margin-bottom: 8px;
+  }
+  .insight-card p:last-child { margin-bottom: 0; }
+
+  /* ---- Countdown ---- */
+  .countdown-card {
+    background: linear-gradient(135deg, rgba(0,212,170,0.08), rgba(0,102,255,0.08));
+    border: 1px solid rgba(0,212,170,0.2);
+    border-radius: 16px;
+    padding: 28px 30px;
+    margin-bottom: 36px;
+    text-align: center;
+  }
+  .countdown-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .countdown-card .event-name {
+    font-size: 22px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+  .countdown-days {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin: 10px 0;
+  }
+  .countdown-days small {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+  .countdown-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+
+  /* ---- Footer ---- */
+  .footer {
+    text-align: center;
+    padding: 32px 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+  .footer p { margin-bottom: 4px; }
+  .footer strong { color: var(--accent); }
+
+  /* ---- Divider ---- */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,212,170,0.2), rgba(123,97,255,0.2), transparent);
+    margin: 36px 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-label">📡 行业日报 · 两周一刊</div>
+  <h1>新能源船舶日报</h1>
+  <p class="hero-sub">聚焦绿色智能船舶产业动态，追踪政策、技术、市场与投资前沿</p>
+  <div class="hero-badges">
+    <div class="badge">📅 <strong>2026.03.26</strong> 周四</div>
+    <div class="badge">📰 本期 <strong>6</strong> 条重要动态</div>
+    <div class="badge">⏱️ 覆盖 <strong>3.19–3.26</strong> 行业要闻</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Insight Banner -->
+  <div class="insight-banner">
+    <h3>💡 本期核心洞察</h3>
+    <p>本周重大进展集中在 <strong>3月19日</strong> 与 <strong>3月22–24日</strong> 两波。全球首艘氢动力邮轮下水、氢能标准化委员会成立、扬州甲醇系列圆满收官、广西19艘批量签约、福安百艘目标确立——五件大事同频共振，揭示一个核心信号：<strong>绿色船舶产业正从"示范期"向"规模化临界点"加速跃迁</strong>。</p>
+  </div>
+
+  <!-- Countdown -->
+  <div class="countdown-card">
+    <h3>倒计时</h3>
+    <div class="event-name">CIBS 2026 上海国际船艇展</div>
+    <div class="countdown-days">3<span>天</span></div>
+    <div class="countdown-meta">📍 上海世博展览馆 | 2026.03.29–03.31 | 55000㎡</div>
+  </div>
+
+  <!-- News 1: 氢能里程碑 -->
+  <div class="card milestone">
+    <div class="card-header">
+      <span class="card-tag milestone">🚢 技术突破</span>
+      <span class="card-date">2026.03.19</span>
+    </div>
+    <h2>全球首艘氢动力邮轮"维京天秤座"号下水，零排放邮轮时代开启</h2>
+    <div class="card-body">
+      <p>3月19日，意大利安科纳芬坎蒂尼造船厂，全球首艘以氢燃料电池为核心动力系统的商用邮轮——<strong>"维京天秤座"号（Viking Libra）</strong>正式下水，标志着邮轮行业实现零排放运营的重大突破。下水仪式后进入最后舾装阶段，计划于<strong>2026年11月</strong>正式交付运营，首航覆盖地中海和北欧航线。维京邮轮旨在以此将公司打造为可持续旅行领域的创新领导者，为资本密集型邮轮业设定新的环保标准。</p>
+      <p style="margin-top:12px;">同日（3月5日），<strong>能源行业氢能领域标准化技术委员会</strong>在北京正式成立，下设氢能基础与通用、制取、储存运输、应用4个分委员会（由中石化承担管理职责）。顶层设计落地与维京氢船下水形成"标准+应用"双轨并进格局，氢能在船舶领域的商业化路径正加速清晰。</p>
+    </div>
+    <div class="card-footer">
+      <span class="card-source">📰 来源：Edgen Stock / 能源界 / 石科院</span>
+      <a class="card-link" href="https://www.edgen.tech/zh/news/stock/viking-unveils-hydrogen-ship-as-green-maritime-tech-accelerates" target="_blank">查看原文 →</a>
+    </div>
+  </div>
+
+  <!-- News 2: 甲醇动力 -->
+  <div class="card h2">
+    <div class="card-header">
+      <span class="card-tag h2">⚙️ 企业动态</span>
+      <span class="card-date">2026.03.19 / 03.23</span>
+    </div>
+    <h2>扬州中远海运：16000TEU甲醇双燃料箱船系列圆满收官，11万吨油船新船型进坞</h2>
+    <div class="card-body">
+      <p><strong>3月19日</strong>，扬州中远海运重工为中远海运集运建造的16000TEU甲醇双燃料集装箱船"<strong>中远海运百合花</strong>"轮正式命名，成为首批4艘同系列船的收官之作，标志着中国船企首个大型甲醇双燃料箱船建造项目圆满完成。从首艘"中远海运洋浦"轮到"百合花"，中国实现了从"零的突破"到"批量成熟建造"的跨越。</p>
+      <p style="margin-top:12px;"><strong>3月23日</strong>，扬州中远海运重工为中远海运能源建造的<strong>首制11万吨级甲醇双燃料油船</strong>在2号坞顺利进坞，配备桨前节能导管、消涡鳍等节能装置，满足EEDI Phase 3标准。甲醇双燃料技术正从集装箱船向油船领域延伸。截至目前，中远海运手持甲醇双燃料船订单66艘，已投运6艘。</p>
+    </div>
+    <div class="card-footer">
+      <span class="card-source">📰 来源：扬州海事局 / 国际船舶网 / 龙de船人</span>
+      <a class="card-link" href="https://www.sohu.com/a/1000431150_276266" target="_blank">查看原文 →</a>
+    </div>
+  </div>
+
+  <!-- News 3: 广西19艘 -->
+  <div class="card market">
+    <div class="card-header">
+      <span class="card-tag market">🏗️ 市场动态</span>
+      <span class="card-date">2026.03.22</span>
+    </div>
+    <h2>广西首批19艘新能源船舶批量签约，总投资3.36亿元覆盖三条技术路线</h2>
+    <div class="card-body">
+      <p>3月22日，广西桂平市宏信船舶修造有限公司举行"智驭新能 共'碳'未来"绿色智能船舶开工仪式，与三家企业签下<strong>19艘新能源船舶建造协议，总投资3.36亿元</strong>，涵盖广西首批同类型新能源船舶。</p>
+    </div>
+    <table class="card-table">
+      <thead>
+        <tr>
+          <th>船型</th>
+          <th>动力类型</th>
+          <th>数量</th>
+          <th>订购方</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>甲醇动力集散两用船</td>
+          <td>甲醇动力</td>
+          <td>8艘</td>
+          <td>清远市利航运输</td>
+        </tr>
+        <tr>
+          <td>纯电动力平陆运河散货船</td>
+          <td>纯电动</td>
+          <td>2+7艘</td>
+          <td>广东易智联海洋</td>
+        </tr>
+        <tr>
+          <td>LNG混合动力油化品船</td>
+          <td>LNG混合</td>
+          <td>2艘</td>
+          <td>广西金茂船务</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="card-body" style="margin-top:8px;margin-bottom:0;">
+      <p>值得注意的是，这批船舶同时覆盖<strong>甲醇、纯电、LNG三种主流技术路径</strong>，体现了内河航运"场景分化、多元并存"的绿色转型特征——不再押注单一路线，而是根据不同航运场景匹配最优动力方案。</p>
+    </div>
+    <div class="card-footer">
+      <span class="card-source">📰 来源：中华航运网 / 龙de船人</span>
+      <a class="card-link" href="https://info.chineseshipping.com.cn/cninfo/News/202603/t20260324_1414581.shtml" target="_blank">查看原文 →</a>
+    </div>
+  </div>
+
+  <!-- News 4: 福安百艘 -->
+  <div class="card h6">
+    <div class="card-header">
+      <span class="card-tag h6">🏭 产业规划</span>
+      <span class="card-date">2026.03.24</span>
+    </div>
+    <h2>福安再立flag：2026年目标制造电动船舶不少于100艘</h2>
+    <div class="card-body">
+      <p>福建福安市发布2026年电动船舶产业发展目标：<strong>全年制造电动船舶不少于100艘</strong>，加快推进福安电动船舶产业园示范基地建设，并向省外及海外市场延伸，持续擦亮"福安电船"品牌。</p>
+      <p style="margin-top:12px;">核心举措：支持企业新建电动船舶专用生产线，推动"电池、电控、电机"三电系统向集约化、模块化发展；沿江沿海<strong>8个乡镇布局153个直流充电桩</strong>，完善"岸电—船舶—运维"一体化智慧基建；依托《扶持船舶产业发展的12条措施》提供用船补贴等政策保障。</p>
+      <p style="margin-top:12px;margin-bottom:0;"><strong>背景：</strong>2025年福安市交付电动船舶数量占福建全省一半，全国首艘双体纯电动旅游客船"屿见77"号即出自福安。</p>
+    </div>
+    <div class="card-footer">
+      <span class="card-source">📰 来源：宁德市人民政府 / 宁德网</span>
+      <a class="card-link" href="https://www.ningde.gov.cn/zwgk/gzdt/qxdt/202603/t20260324_2448429.htm" target="_blank">查看原文 →</a>
+    </div>
+  </div>
+
+  <!-- News 5: CCS海上制氢 -->
+  <div class="card h2">
+    <div class="card-header">
+      <span class="card-tag h2">🔬 技术前沿</span>
+      <span class="card-date">2026.03.19</span>
+    </div>
+    <h2>CCS出席盐城论坛：海上制氢赋能深远海零碳，发布《海上制氢设施指南》</h2>
+    <div class="card-body">
+      <p>3月19日，"<strong>2026中国海上新能源创新发展论坛</strong>"在江苏盐城举办。中国船级社（CCS）海洋工程技术中心新型设施部梁同鑫发表《海上制氢赋能未来海上零碳发展》主题演讲，阐述两个核心方向：</p>
+      <p style="margin-top:10px;"><strong>①</strong> 海上制氢在深远海风电消纳中的作用：构建<strong>"绿电—绿氢—零碳应用"</strong>产业闭环，解决深远海风电储运难题；</p>
+      <p style="margin-top:8px;"><strong>②</strong> CCS《海上制氢设施指南》（2025版）为海上制氢设施的设计、建造、运营提供全流程安全保障规范，与氢能标委会形成协同。</p>
+      <p style="margin-top:12px;margin-bottom:0;">这一动向意味着绿色船舶动力革命的<strong>下一战场</strong>正从近海内河向深远海延伸，海上制氢将成为远洋航运零碳化的关键技术储备。</p>
+    </div>
+    <div class="card-footer">
+      <span class="card-source">📰 来源：中国船级社（CCS）官网</span>
+      <a class="card-link" href="https://www.ccs.org.cn/ccswz/specialDetail?id=202603190246498236&type=1" target="_blank">查看原文 →</a>
+    </div>
+  </div>
+
+  <!-- Deep Insights Section -->
+  <div class="section-title">📊 深度洞察</div>
+
+  <div class="insight-card">
+    <h3>洞察一：<span>技术路线——从"单选题"走向"多选并行"</span></h3>
+    <p>本周新闻覆盖了<strong>甲醇、纯电、LNG、氢能</strong>四种主要技术路径：甲醇双燃料船已完成从集装箱到油船的品类扩展；纯电动在内河货运领域批量落地（广西9艘、福安100艘）；氢能邮轮实现工程里程碑；LNG在内河船领域维持增长惯性。</p>
+    <p><strong>判断：</strong>行业正从"技术路线之争"转向"场景适配最优解"——短途内河以纯电为主，中长途以甲醇/LNG为过渡，长途邮轮以氢能为终极目标。</p>
+  </div>
+
+  <div class="insight-card">
+    <h3>洞察二：<span>政策体系——从"规划引导"走向"标准落地"</span></h3>
+    <p>氢能标准化技术委员会成立（4个分委员会）、CCS《海上制氢设施指南》发布，意味着政策框架已从<strong>宏观规划阶段</strong>进入<strong>技术标准与监管体系落地阶段</strong>。这是产业规模化加速的前置条件。</p>
+  </div>
+
+  <div class="insight-card">
+    <h3>洞察三：<span>市场信号——从"概念验证"走向"批量订单"</span></h3>
+    <p>广西19艘（3.36亿）、福安百艘（省级目标）、武汉82艘（年减碳万吨）、山东45艘（12亿）——头部地区正以<strong>10亿级、100艘级</strong>为单位落地订单。叠加中远海运66艘手持甲醇船订单，全球绿色船舶规模化临界点正在形成。</p>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>新能源船舶日报 · 2026年3月26日（第6期）</p>
+  <p>聚焦绿色智能船舶产业洞察 | <strong>CIBS 2026 下周开幕</strong></p>
+</div>
+
+</body>
+</html>
