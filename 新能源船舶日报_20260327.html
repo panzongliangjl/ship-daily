@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新能源船舶日报 | 2026年3月27日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0066FF;
+    --primary-dark: #0052CC;
+    --accent: #00D4AA;
+    --accent2: #FF6B35;
+    --accent3: #7B61FF;
+    --bg: #070B1A;
+    --card-bg: rgba(255,255,255,0.04);
+    --card-border: rgba(255,255,255,0.08);
+    --text-primary: #F0F4FF;
+    --text-secondary: rgba(240,244,255,0.6);
+    --text-muted: rgba(240,244,255,0.35);
+    --tag-tech: #00D4AA;
+    --tag-market: #0099FF;
+    --tag-policy: #FFD700;
+    --tag-hot: #FF4D4D;
+    --tag-preview: #FF6B35;
+    --tag-intl: #B47AFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.75;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    position: relative;
+    padding: 80px 24px 60px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 90% 70% at 50% -10%, rgba(0,102,255,0.28) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 45% at 85% 15%, rgba(123,97,255,0.20) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 35% at 10% 30%, rgba(0,212,170,0.14) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,212,170,0.12);
+    border: 1px solid rgba(0,212,170,0.3);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow::before { content: '⚡'; }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff 0%, rgba(200,220,255,0.85) 60%, rgba(0,212,170,0.9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    margin: 0 auto 12px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  /* ---- Stats Bar ---- */
+  .stats-bar {
+    max-width: 800px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding: 18px 28px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1.2;
+  }
+  .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ---- Countdown Banner ---- */
+  .countdown-banner {
+    max-width: 860px;
+    margin: 0 auto 40px;
+    padding: 20px 28px;
+    background: linear-gradient(135deg, rgba(255,107,53,0.15) 0%, rgba(123,97,255,0.12) 100%);
+    border: 1px solid rgba(255,107,53,0.35);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .countdown-icon { font-size: 32px; flex-shrink: 0; }
+  .countdown-content h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent2);
+    margin-bottom: 4px;
+  }
+  .countdown-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .countdown-badge {
+    margin-left: auto;
+    background: var(--accent2);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ---- Main ---- */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ---- Section Header ---- */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .section-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .section-icon.blue { background: rgba(0,102,255,0.2); }
+  .section-icon.teal { background: rgba(0,212,170,0.15); }
+  .section-icon.orange { background: rgba(255,107,53,0.15); }
+  .section-icon.purple { background: rgba(123,97,255,0.18); }
+  .section-icon.yellow { background: rgba(255,215,0,0.15); }
+  .section-title { font-size: 17px; font-weight: 700; color: var(--text-primary); }
+  .section-count {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.06);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  /* ---- Card ---- */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--card-accent, transparent);
+    opacity: 0;
+    transition: opacity 0.22s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,0.15);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  }
+  .card:hover::before { opacity: 1; }
+
+  .card.teal { --card-accent: linear-gradient(90deg, var(--accent), transparent); }
+  .card.blue  { --card-accent: linear-gradient(90deg, var(--primary), transparent); }
+  .card.orange{ --card-accent: linear-gradient(90deg, var(--accent2), transparent); }
+  .card.purple{ --card-accent: linear-gradient(90deg, var(--accent3), transparent); }
+  .card.yellow{ --card-accent: linear-gradient(90deg, #FFD700, transparent); }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
+  }
+  .tag.tech    { background: rgba(0,212,170,0.15); color: var(--tag-tech);   border: 1px solid rgba(0,212,170,0.25); }
+  .tag.market  { background: rgba(0,153,255,0.15); color: var(--tag-market); border: 1px solid rgba(0,153,255,0.25); }
+  .tag.policy  { background: rgba(255,215,0,0.12); color: var(--tag-policy); border: 1px solid rgba(255,215,0,0.2); }
+  .tag.hot     { background: rgba(255,77,77,0.15); color: var(--tag-hot);    border: 1px solid rgba(255,77,77,0.25); }
+  .tag.intl    { background: rgba(180,122,255,0.15); color: var(--tag-intl); border: 1px solid rgba(180,122,255,0.25); }
+  .tag.preview { background: rgba(255,107,53,0.15); color: var(--tag-preview); border: 1px solid rgba(255,107,53,0.25); }
+
+  .card-date {
+    font-size: 12px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    margin-left: auto;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .card h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .highlight-box {
+    background: rgba(0,212,170,0.07);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0 14px;
+    font-size: 13.5px;
+    color: rgba(240,244,255,0.75);
+    line-height: 1.7;
+  }
+  .highlight-box.orange { background: rgba(255,107,53,0.07); border-left-color: var(--accent2); }
+  .highlight-box.blue   { background: rgba(0,102,255,0.07);  border-left-color: var(--primary); }
+  .highlight-box.purple { background: rgba(123,97,255,0.08); border-left-color: var(--accent3); }
+  .highlight-box.yellow { background: rgba(255,215,0,0.06);  border-left-color: #FFD700; }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .source-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .source-info::before { content: '📰'; font-size: 13px; }
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,212,170,0.25);
+    background: rgba(0,212,170,0.07);
+    transition: all 0.2s;
+  }
+  .read-more:hover { background: rgba(0,212,170,0.15); border-color: rgba(0,212,170,0.45); color: #fff; }
+  .read-more::after { content: '→'; }
+
+  .read-more.blue {
+    color: #4D9FFF;
+    border-color: rgba(77,159,255,0.25);
+    background: rgba(77,159,255,0.07);
+  }
+  .read-more.blue:hover { background: rgba(77,159,255,0.15); border-color: rgba(77,159,255,0.45); }
+
+  .read-more.orange {
+    color: var(--accent2);
+    border-color: rgba(255,107,53,0.3);
+    background: rgba(255,107,53,0.07);
+  }
+  .read-more.orange:hover { background: rgba(255,107,53,0.15); }
+
+  /* ---- Key Facts ---- */
+  .key-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin: 12px 0 14px;
+  }
+  .fact-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  .fact-label { color: var(--text-muted); font-size: 11px; margin-bottom: 3px; }
+  .fact-value { color: var(--text-primary); font-weight: 600; }
+
+  /* ---- Section spacing ---- */
+  .section-group { margin-bottom: 40px; }
+
+  /* ---- Analysis Box ---- */
+  .analysis-box {
+    background: linear-gradient(135deg, rgba(0,102,255,0.08) 0%, rgba(123,97,255,0.06) 100%);
+    border: 1px solid rgba(0,102,255,0.2);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 40px;
+  }
+  .analysis-box h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #6EA8FF;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .analysis-item {
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .analysis-item .a-label { font-size: 11.5px; color: var(--text-muted); margin-bottom: 6px; }
+  .analysis-item .a-value { font-size: 13.5px; color: var(--text-primary); line-height: 1.6; }
+
+  /* ---- Navigation ---- */
+  .nav-bar {
+    max-width: 860px;
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    transition: all 0.2s;
+  }
+  .nav-link:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); }
+  .nav-link.prev::before { content: '←'; }
+
+  /* ---- Footer ---- */
+  footer {
+    text-align: center;
+    padding: 40px 20px 60px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 2;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .footer-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+    transition: all 0.2s;
+  }
+  .footer-nav-link:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); }
+  .footer-nav-link.prev::before { content: '← '; }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-eyebrow">新能源船舶 · 每日资讯</div>
+  <h1>新能源船舶日报</h1>
+  <div class="hero-meta">
+    <span>📅 2026年3月27日 · 星期五</span>
+    <span>🚢 6条精选资讯</span>
+    <span>⚡ 绿色燃料 · 碳纤维船艇 · 展会前夜</span>
+  </div>
+  <div class="hero-divider"></div>
+</section>
+
+<!-- Main -->
+<div class="container">
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num">6</span>
+      <div class="stat-label">今日资讯</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">5600万</span>
+      <div class="stat-label">新能源运力采购金额</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">460吨</span>
+      <div class="stat-label">纯电拖轮两月减碳量</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2天</span>
+      <div class="stat-label">CIBS展会倒计时</div>
+    </div>
+  </div>
+
+  <!-- CIBS Countdown Banner -->
+  <div class="countdown-banner">
+    <div class="countdown-icon">🎪</div>
+    <div class="countdown-content">
+      <h3>CIBS 2026 · 上海国际船艇展 — 即将开幕！</h3>
+      <p>2026年3月29—31日 · 上海世博展览馆 · 55,000㎡ · 600+参展商 · 35,000+专业观众</p>
+    </div>
+    <div class="countdown-badge">⚡ 仅剩 2 天</div>
+  </div>
+
+  <!-- Nav -->
+  <div class="nav-bar">
+    <a class="nav-link prev" href="新能源船舶日报_20260326.html">2026-03-26</a>
+  </div>
+
+  <!-- Section 1: 今日速递 -->
+  <div class="section-group">
+    <div class="section-header">
+      <div class="section-icon teal">🔥</div>
+      <div class="section-title">今日速递</div>
+      <div class="section-count">3 条</div>
+    </div>
+
+    <!-- Card 1: 绿氨燃料 -->
+    <div class="card teal">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag tech">技术突破</span>
+          <span class="tag intl">国际动态</span>
+        </div>
+        <div class="card-date">3月26日</div>
+      </div>
+      <h2>比LNG还划算！WinGD×远景：2050年绿氨全生命周期成本将低于LNG</h2>
+      <p>船用发动机巨头WinGD联合远景科技集团（Envision）发布最新研究报告，以中澳航线集装箱船和散货船为案例，经过严格量化建模后得出重要结论：若IMO净零排放框架（NZF）顺利落地，到2050年，<strong>绿氨燃料全生命周期运营成本将比LNG低约5%—6%</strong>，成为航运脱碳核心替代燃料。</p>
+      <div class="highlight-box">
+        🔬 <strong>技术进展：</strong>WinGD的X-DF-A氨燃料发动机已于2023年获法国船级社（BV）型式认可，预计<strong>2026年下半年正式商用</strong>；中国配套方远景能源内蒙古赤峰绿氨工厂年产能已达32万吨，2028年将扩至150万吨。
+      </div>
+      <div class="card-footer">
+        <div class="source-info">国际船舶网 · 海事早知道</div>
+        <a class="read-more" href="https://www.eworldship.com/html/2026/ship_inside_and_outside_0326/219539.html" target="_blank">阅读原文</a>
+      </div>
+    </div>
+
+    <!-- Card 2: 华光源海购船 -->
+    <div class="card blue">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag market">市场动态</span>
+          <span class="tag hot">上市公告</span>
+        </div>
+        <div class="card-date">3月25日</div>
+      </div>
+      <h2>华光源海5600万购一艘14000吨LNG动力集装箱船，绿色运力扩张再提速</h2>
+      <p>上市公司华光源海国际物流集团（股票代码：920351）发布公告，斥资不超过<strong>5600万元人民币</strong>向金航船厂订造一艘<strong>LNG动力江海直达集装箱船</strong>，运力为1052TEU/14000载重吨，资金来源为公司自有资金。</p>
+      <div class="key-facts">
+        <div class="fact-item">
+          <div class="fact-label">船型</div>
+          <div class="fact-value">LNG动力集装箱船</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">运力</div>
+          <div class="fact-value">1052TEU / 14000DWT</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">金额</div>
+          <div class="fact-value">≤5600万元</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">建造方</div>
+          <div class="fact-value">金航船厂</div>
+        </div>
+      </div>
+      <p style="font-size:13.5px; color: rgba(240,244,255,0.55);">公司表示，此次采购是积极响应国家"报废更新补贴"政策、推进船队绿色化升级的重要举措，有助于降低运营成本，提升市场竞争力。</p>
+      <div class="card-footer">
+        <div class="source-info">上海证券报 · 中国证券网</div>
+        <a class="read-more blue" href="https://news.10jqka.com.cn/20260325/c675546530.shtml" target="_blank">阅读原文</a>
+      </div>
+    </div>
+
+    <!-- Card 3: 绿色燃料涨价火爆 -->
+    <div class="card orange">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag hot">深度分析</span>
+          <span class="tag market">市场动态</span>
+        </div>
+        <div class="card-date">3月23日</div>
+      </div>
+      <h2>船用油价暴涨160%！绿色甲醇需求飙升，替代燃料从"环保选项"变"生存刚需"</h2>
+      <p>全球主要港口低硫燃料油（VLSFO）价格剧烈上涨，新加坡港2026年初至今累计涨幅达<strong>160%</strong>，突破1100美元/吨，一艘17万吨散货船燃油成本占比从不到50%飙升至85%+。绿色替代燃料需求随之井喷。</p>
+      <div class="highlight-box orange">
+        📊 <strong>绿色燃料加注量激增：</strong>2026年2月新加坡甲醇加注量约6000吨，<strong>超2025年全年总量</strong>；LNG加注量稳增至5.9万吨；生物混合燃料反弹至9.2万吨。全球约55艘甲醇双燃料集装箱船在运，燃料灵活性成为应对油价波动的关键壁垒。
+      </div>
+      <p style="font-size:13.5px; color: rgba(240,244,255,0.55);">风帆辅助（如商船三井Wind Challenger）、空气润滑等节能技术在高油价背景下重新受到重视，实船验证节油5%—8%，每航次可节省数十万美元。</p>
+      <div class="card-footer">
+        <div class="source-info">新浪财经 · 环球零碳</div>
+        <a class="read-more orange" href="https://baijiahao.baidu.com/s?id=1860460941547890908" target="_blank">阅读原文</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: 技术与产品 -->
+  <div class="section-group">
+    <div class="section-header">
+      <div class="section-icon teal">⚙️</div>
+      <div class="section-title">技术与产品</div>
+      <div class="section-count">2 条</div>
+    </div>
+
+    <!-- Card 4: 碳纤维电动公务船 -->
+    <div class="card teal">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag tech">全国首艘</span>
+          <span class="tag tech">技术突破</span>
+        </div>
+        <div class="card-date">3月23日</div>
+      </div>
+      <h2>全国首艘！中创新航"至远"电池赋能碳纤维电动公务船"深人安1"号在深圳交付</h2>
+      <p>全国首艘获CCS（中国船级社）认证的<strong>碳纤维单机电力推进公务船"深人安1"号</strong>在深圳水库正式交付，标志着电动船舶向公共服务领域拓展迈出重要一步。</p>
+      <div class="key-facts">
+        <div class="fact-item">
+          <div class="fact-label">船体材料</div>
+          <div class="fact-value">全碳纤维复合材料</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">动力系统</div>
+          <div class="fact-value">中创新航"至远"船用电池</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">运营场景</div>
+          <div class="fact-value">巡逻执法 / 应急响应</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">排放</div>
+          <div class="fact-value">零排放 · 低噪声</div>
+        </div>
+      </div>
+      <div class="highlight-box">
+        ✨ 全碳纤维船体具备<strong>轻量化、高强度、耐腐蚀、低维护</strong>四大优势，配合新能源动力系统，开创了公务执法船艇"绿色+高性能"一体化的新路径。
+      </div>
+      <div class="card-footer">
+        <div class="source-info">国际船舶网</div>
+        <a class="read-more" href="https://www.eworldship.com/html/2026/Manufacturer_0323/219433.html" target="_blank">阅读原文</a>
+      </div>
+    </div>
+
+    <!-- Card 5: 厦门港纯电拖轮 -->
+    <div class="card teal">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag tech">运营实测</span>
+          <span class="tag market">绿色成绩单</span>
+        </div>
+        <div class="card-date">3月24日</div>
+      </div>
+      <h2>实测！厦门港首批纯电拖轮两月减碳460吨，绿色成绩单超预期</h2>
+      <p>厦门港首批纯电动拖轮投运两个月后交出亮眼"绿色成绩单"：实际减碳量达<strong>460吨</strong>，超出初期预期。这是国内港口新能源拖轮大规模商业化运营后首次公开实测减碳数据，具有重要的行业参考价值。</p>
+      <div class="highlight-box">
+        💡 纯电拖轮的成功运营验证了<strong>港口新能源化的可行性与经济性</strong>。按此减碳速率，单批次拖轮年减碳量约2760吨，相当于种植约15万棵树的碳汇效益。
+      </div>
+      <div class="card-footer">
+        <div class="source-info">国际船舶网</div>
+        <a class="read-more" href="https://www.eworldship.com/html/2026/OperatingShip_0324/219484.html" target="_blank">阅读原文</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: 展会前瞻 -->
+  <div class="section-group">
+    <div class="section-header">
+      <div class="section-icon orange">🎯</div>
+      <div class="section-title">展会前瞻 · CIBS 2026</div>
+      <div class="section-count">1 条</div>
+    </div>
+
+    <!-- Card 6: CIBS 展会 -->
+    <div class="card purple">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag preview">展会预告</span>
+          <span class="tag hot">2天后开幕</span>
+        </div>
+        <div class="card-date">3月29—31日</div>
+      </div>
+      <h2>CIBS 2026 上海国际船艇展后天开幕 —— 绿色智能船舶时代的"风向标"盛会</h2>
+      <p>中国（上海）第29届国际船艇及其技术设备展览会（CIBS 2026）将于<strong>3月29日至31日</strong>在上海世博展览馆盛大启幕，这是继2025年后规模再度扩大的年度旗舰展会，被誉为"亚洲船艇全产业链旗舰展"。</p>
+      <div class="key-facts">
+        <div class="fact-item">
+          <div class="fact-label">展览面积</div>
+          <div class="fact-value">55,000 ㎡</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">参展企业</div>
+          <div class="fact-value">600+ 家</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">专业观众</div>
+          <div class="fact-value">35,000+ 人</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-label">展会地点</div>
+          <div class="fact-value">上海世博展览馆</div>
+        </div>
+      </div>
+      <div class="highlight-box purple">
+        🌊 <strong>本届重点看点：</strong>雅马哈将携商务新品及新能源船外机亮相；多家国内电动游艇、电动公务艇、氢能船艇企业集中展示；绿色航运技术论坛同期举办，涵盖零碳燃料、智能航行、船艇电动化等议题。
+      </div>
+      <div class="card-footer">
+        <div class="source-info">CIBS 官方 · 中国船舶工业行业协会</div>
+        <a class="read-more orange" href="https://www.boatshowchina.com/" target="_blank">展会官网</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Analysis Box -->
+  <div class="analysis-box">
+    <h3>📊 今日编辑洞察</h3>
+    <div class="analysis-grid">
+      <div class="analysis-item">
+        <div class="a-label">🌊 趋势信号</div>
+        <div class="a-value">绿氨成本曲线下穿LNG时间节点正在提前，IMO框架加速催化从"愿景"到"商业化"的临界转变</div>
+      </div>
+      <div class="analysis-item">
+        <div class="a-label">💰 资本行动</div>
+        <div class="a-value">华光源海5600万购LNG船，上市公司主动披露绿色转型进展，绿色运力已从成本中心转为竞争护城河</div>
+      </div>
+      <div class="analysis-item">
+        <div class="a-label">⚡ 技术亮点</div>
+        <div class="a-value">碳纤维+电动组合"深人安1"创公务船新范式，轻量化+零排放双优势开辟高端市场细分赛道</div>
+      </div>
+      <div class="analysis-item">
+        <div class="a-label">🎯 下周重点</div>
+        <div class="a-value">CIBS 2026（3/29—31）将汇集行业头部玩家，重点关注电动游艇新品发布、政策论坛及签约仪式</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- Footer -->
+<footer>
+  <p>新能源船舶日报 · 每日推送</p>
+  <p style="margin-top:6px; font-size:12px;">涵盖新能源船舶、船艇全品类 | 电动 · 甲醇 · 氢能 · 氨燃料 · LNG</p>
+  <div class="footer-nav">
+    <a class="footer-nav-link prev" href="新能源船舶日报_20260326.html">← 2026-03-26</a>
+  </div>
+  <p style="margin-top:24px; font-size:11.5px; color: rgba(240,244,255,0.2);">数据来源：国际船舶网、上海证券报、新浪财经、澎湃新闻等 · 仅供参考，不构成投资建议</p>
+</footer>
+
+</body>
+</html>
