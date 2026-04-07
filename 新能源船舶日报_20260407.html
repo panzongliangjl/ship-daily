@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新能源船舶日报 · 2026年4月7日</title>
+  <style>
+    :root {
+      --primary: #0a4f8c;
+      --primary-light: #1a6fbf;
+      --accent: #00b4d8;
+      --accent2: #06d6a0;
+      --accent3: #f4a261;
+      --accent4: #e76f51;
+      --bg-dark: #071a2e;
+      --bg-mid: #0d2847;
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(0,180,216,0.18);
+      --text: #e8f4fd;
+      --text-muted: #8ab3cc;
+      --tag-policy: #00b4d8;
+      --tag-market: #06d6a0;
+      --tag-tech: #a78bfa;
+      --tag-intl: #f4a261;
+      --tag-area: #fb923c;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-mid) 40%, #0f2f4d 100%);
+      min-height: 100vh;
+      color: var(--text);
+      padding: 24px 16px 60px;
+    }
+
+    /* 顶部波浪装饰 */
+    .wave-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3), var(--accent4), var(--accent));
+      background-size: 200% 100%;
+      animation: waveAnim 4s linear infinite;
+      z-index: 100;
+    }
+    @keyframes waveAnim {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* 顶部header */
+    .header {
+      text-align: center;
+      padding: 40px 0 32px;
+      position: relative;
+    }
+    .header-label {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(0,180,216,0.4);
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      background: rgba(0,180,216,0.07);
+    }
+    .header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .header h1 span {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header-date {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+    .header-subtitle {
+      margin-top: 8px;
+      font-size: 13px;
+      color: rgba(138,179,204,0.7);
+    }
+
+    /* 统计栏 */
+    .stats-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s;
+    }
+    .stat-pill:hover {
+      border-color: rgba(0,180,216,0.4);
+      color: var(--text);
+    }
+    .stat-pill strong {
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* 分区标题 */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 32px 0 14px;
+      padding-left: 2px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(0,180,216,0.25) 0%, transparent 100%);
+    }
+
+    /* 新闻卡片 */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+      backdrop-filter: blur(12px);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      border-radius: 3px 0 0 3px;
+      transition: width 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0,180,216,0.35);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,180,216,0.1);
+    }
+    .card.policy::before { background: var(--tag-policy); }
+    .card.market::before { background: var(--tag-market); }
+    .card.tech::before { background: var(--tag-tech); }
+    .card.intl::before { background: var(--tag-intl); }
+    .card.area::before { background: var(--tag-area); }
+    .card.highlight {
+      border-color: rgba(0,180,216,0.3);
+      background: rgba(0,180,216,0.06);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      padding: 2px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+    }
+    .tag.policy { background: rgba(0,180,216,0.15); color: var(--tag-policy); border: 1px solid rgba(0,180,216,0.3); }
+    .tag.market { background: rgba(6,214,160,0.12); color: var(--tag-market); border: 1px solid rgba(6,214,160,0.25); }
+    .tag.tech { background: rgba(167,139,250,0.12); color: var(--tag-tech); border: 1px solid rgba(167,139,250,0.25); }
+    .tag.intl { background: rgba(244,162,97,0.12); color: var(--tag-intl); border: 1px solid rgba(244,162,97,0.25); }
+    .tag.area { background: rgba(251,146,60,0.12); color: var(--tag-area); border: 1px solid rgba(251,146,60,0.25); }
+    .tag.hot { background: rgba(231,111,81,0.15); color: #f97060; border: 1px solid rgba(231,111,81,0.3); }
+
+    .card-date {
+      font-size: 11px;
+      color: rgba(138,179,204,0.6);
+      margin-left: auto;
+    }
+
+    .card-title {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      letter-spacing: 0.2px;
+    }
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .card-title a:hover { color: var(--accent); }
+
+    .card-summary {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .card-summary strong {
+      color: rgba(232,244,253,0.9);
+    }
+
+    /* 数据标签 */
+    .data-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .data-chip {
+      font-size: 11.5px;
+      padding: 3px 10px;
+      border-radius: 10px;
+      background: rgba(0,180,216,0.08);
+      border: 1px solid rgba(0,180,216,0.18);
+      color: rgba(138,179,204,0.9);
+    }
+    .data-chip.green {
+      background: rgba(6,214,160,0.08);
+      border-color: rgba(6,214,160,0.2);
+      color: rgba(6,214,160,0.9);
+    }
+    .data-chip.orange {
+      background: rgba(244,162,97,0.08);
+      border-color: rgba(244,162,97,0.2);
+      color: rgba(244,162,97,0.9);
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .source-label {
+      font-size: 11px;
+      color: rgba(138,179,204,0.55);
+    }
+    .source-label strong { color: rgba(138,179,204,0.8); }
+    .read-link {
+      font-size: 11.5px;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+    .read-link:hover { color: var(--accent2); }
+    .read-link svg { width: 12px; height: 12px; fill: currentColor; }
+
+    /* 编辑洞察卡片 */
+    .insight-card {
+      background: linear-gradient(135deg, rgba(0,180,216,0.08) 0%, rgba(6,214,160,0.05) 100%);
+      border: 1px solid rgba(0,180,216,0.25);
+      border-radius: 16px;
+      padding: 22px 24px;
+      margin: 32px 0 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .insight-card::before {
+      content: '💡';
+      position: absolute;
+      right: 20px;
+      top: 18px;
+      font-size: 32px;
+      opacity: 0.12;
+    }
+    .insight-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .insight-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .insight-text {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .insight-text strong { color: rgba(232,244,253,0.9); }
+
+    /* 底部导航 */
+    .nav-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0,180,216,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-prev a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid rgba(0,180,216,0.2);
+      border-radius: 24px;
+      background: var(--card-bg);
+      transition: all 0.3s;
+    }
+    .nav-prev a:hover {
+      color: var(--accent);
+      border-color: rgba(0,180,216,0.4);
+      background: rgba(0,180,216,0.07);
+    }
+    .footer-brand {
+      font-size: 11.5px;
+      color: rgba(138,179,204,0.4);
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 600px) {
+      .header h1 { font-size: 24px; }
+      .stats-bar { gap: 8px; }
+      .card { padding: 16px 16px; }
+      .card-title { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wave-bg"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-label">🚢 Green Maritime Daily</div>
+      <h1>新能源船舶<span>日报</span></h1>
+      <div class="header-date">2026年4月7日（星期二）</div>
+      <div class="header-subtitle">技术进展 · 政策动态 · 市场观察 · 国际规则</div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-pill">📰 <strong>6</strong> 条精选资讯</div>
+      <div class="stat-pill">📅 覆盖 <strong>4月1日—7日</strong></div>
+      <div class="stat-pill">🔬 技术 / 政策 / 市场 / 国际</div>
+      <div class="stat-pill">🌱 绿色航运全景追踪</div>
+    </div>
+
+    <!-- Section: 重磅技术 -->
+    <div class="section-title">⚡ 技术突破</div>
+
+    <!-- 1. 宁远电鲲 -->
+    <div class="card tech highlight">
+      <div class="card-meta">
+        <span class="tag tech">技术</span>
+        <span class="tag hot">🔥 本周重磅</span>
+        <span class="card-date">4月4日</span>
+      </div>
+      <div class="card-title">
+        <a href="https://caifuhao.eastmoney.com/news/20260404183908884375960" target="_blank">
+          "宁远电鲲"号完成检验发证——全球最大万吨级纯电智能海船进入营运倒计时
+        </a>
+      </div>
+      <div class="card-summary">
+        中国船级社（CCS）于<strong>4月4日</strong>正式完成"宁远电鲲"号建造检验并签发证书，这艘全球最大、国内首制的<strong>740TEU万吨级纯电动敞口集装箱船</strong>即将投入商业运营。该船总长127.8米，配备10组箱式锂电池（总容量19,600kWh），支持<strong>高压岸电充电与吊装换电</strong>双模式，并装有光伏系统辅助供电，实现零排放运营。智能化方面，获得CCS i-ship（M、No、I）等附加标志，具备开阔水域<strong>自主航行、自动靠离泊、船员行为识别</strong>等能力，较传统动力每年减少<strong>1,462吨</strong>二氧化碳排放。由宁波远洋运输股份有限公司投资、江西江新造船有限公司建造。
+      </div>
+      <div class="data-chips">
+        <span class="data-chip green">19,600 kWh 电池容量</span>
+        <span class="data-chip green">年减碳 1,462 吨</span>
+        <span class="data-chip">740 TEU · 127.8m</span>
+        <span class="data-chip orange">全球最大纯电集装箱船</span>
+      </div>
+      <div class="card-footer">
+        <span class="source-label">来源：<strong>东方财富财富号 / CCS</strong></span>
+        <a href="https://caifuhao.eastmoney.com/news/20260404183908884375960" class="read-link" target="_blank">阅读原文 <svg viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      </div>
+    </div>
+
+    <!-- 2. 爱达·花城号+三大明珠 -->
+    <div class="card tech">
+      <div class="card-meta">
+        <span class="tag tech">技术</span>
+        <span class="card-date">4月6日</span>
+      </div>
+      <div class="card-title">
+        <a href="https://cjrb.cjn.cn/html/2026-04/06/content_151732_3306784.htm" target="_blank">
+          集齐"三大明珠"，中国成全球唯一：第二艘国产邮轮出坞，绿色订单占比达70%
+        </a>
+      </div>
+      <div class="card-summary">
+        长江日报4月6日深度报道：<strong>第二艘国产大型邮轮"爱达·花城号"</strong>于3月20日在上海出坞，总吨位14.19万吨，搭载脱硫塔+SCR双系统及AI智能控制，绿色标准全面升级。至此，中国成为全球唯一同时具备<strong>航空母舰、大型邮轮、大型LNG运输船</strong>"三大顶级船型"完整建造能力的国家。绿色化方面，2025年中国新接船舶订单中<strong>绿色动力船舶占比已达70%</strong>，全球最大甲醇双燃料油轮"凯拓"轮提前4个月交付，国产"齐耀"发动机取得全球首张氨氢燃料认证，中国已占全球LNG运输船市场份额<strong>30%以上</strong>（2022年不足5%）。
+      </div>
+      <div class="data-chips">
+        <span class="data-chip green">绿色动力订单占比 70%</span>
+        <span class="data-chip">LNG船市场份额 &gt;30%</span>
+        <span class="data-chip orange">三大顶级船型全面突破</span>
+      </div>
+      <div class="card-footer">
+        <span class="source-label">来源：<strong>长江日报</strong></span>
+        <a href="https://cjrb.cjn.cn/html/2026-04/06/content_151732_3306784.htm" class="read-link" target="_blank">阅读原文 <svg viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Section: 政策动态 -->
+    <div class="section-title">📋 政策动态</div>
+
+    <!-- 3. 长江充换电/甲醇指南 -->
+    <div class="card policy">
+      <div class="card-meta">
+        <span class="tag policy">政策</span>
+        <span class="tag hot">🔥 刚刚生效</span>
+        <span class="card-date">4月1日</span>
+      </div>
+      <div class="card-title">
+        <a href="https://mp.ofweek.com/ecep/a256714230607" target="_blank">
+          长江首部电动船舶充换电+甲醇加注操作规范4月1日起正式参考执行
+        </a>
+      </div>
+      <div class="card-summary">
+        交通运输部长江航务管理局发布的<strong>《长江电动船舶充换电操作指南（试行）》</strong>和<strong>《长江甲醇燃料水上加注指南（试行）》</strong>自2026年4月1日起在<strong>长江干线及长三角内河水域参考执行</strong>，这是我国<strong>首部</strong>针对内河电动船舶充换电作业的标准化操作规范。文件明确了充电设施分级、换电作业流程、应急处置规程，以及甲醇船舶靠泊加注安全要求，填补了内河新能源船舶运营标准空白，为长三角绿色航运规模化提供"操作手册"。
+      </div>
+      <div class="data-chips">
+        <span class="data-chip green">全国首部内河充换电规范</span>
+        <span class="data-chip">适用：长江干线+长三角</span>
+        <span class="data-chip orange">4月1日起参考执行</span>
+      </div>
+      <div class="card-footer">
+        <span class="source-label">来源：<strong>长江航务管理局 / 北极星储能网</strong></span>
+        <a href="https://mp.ofweek.com/ecep/a256714230607" class="read-link" target="_blank">阅读原文 <svg viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Section: 市场动态 -->
+    <div class="section-title">📊 市场动态</div>
+
+    <!-- 4. 长江绿色航运深度 -->
+    <div class="card area">
+      <div class="card-meta">
+        <span class="tag area">区域</span>
+        <span class="card-date">4月3日</span>
+      </div>
+      <div class="card-title">
+        <a href="https://www.chinanews.com.cn/cj/2026/04-03/10598623.shtml" target="_blank">
+          长江黄金水道"扬绿帆"：LNG同比+307%，万吨纯电船在建，换电网络提速
+        </a>
+      </div>
+      <div class="card-summary">
+        中新社4月3日"十五五新图景"系列报道：长江绿色航运指标全面向好——湖北秭归段<strong>LNG加注站2026年一季度加注量超1500吨，同比增长307%</strong>；万吨级纯电动运输船<strong>"葛洲坝号"</strong>正在舾装（载电量24,000kWh，续航500公里），预计上半年交付，年替代617.5吨燃油、减排2,052吨CO₂；湖北已建成<strong>108座岸电码头、307台套岸电设备</strong>。"十五五"规划纲要明确加快绿色燃料车船应用，绿色基础设施建设提速。
+      </div>
+      <div class="data-chips">
+        <span class="data-chip green">LNG加注量 +307%（Q1）</span>
+        <span class="data-chip green">"葛洲坝号"24,000 kWh</span>
+        <span class="data-chip">108座岸电码头</span>
+        <span class="data-chip orange">年减排 2,052 吨 CO₂</span>
+      </div>
+      <div class="card-footer">
+        <span class="source-label">来源：<strong>中新网 / 央视网</strong></span>
+        <a href="https://www.chinanews.com.cn/cj/2026/04-03/10598623.shtml" class="read-link" target="_blank">阅读原文 <svg viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      </div>
+    </div>
+
+    <!-- 5. 绿色燃料万亿市场 -->
+    <div class="card market">
+      <div class="card-meta">
+        <span class="tag market">市场</span>
+        <span class="card-date">3月31日—4月1日</span>
+      </div>
+      <div class="card-title">
+        <a href="https://www.21jingji.com/article/20260331/herald/d139f865c0d5f43895fb1931f17054a8.html" target="_blank">
+          绿色燃料首次写入政府工作报告，万亿风口开启——制氢设备订单排至年底
+        </a>
+      </div>
+      <div class="card-summary">
+        2026年政府工作报告<strong>首次将"绿色燃料"列为十五五新增长点</strong>，涵盖绿色氢能、绿色甲醇、绿色氨和可持续航空燃料。中电联预测<strong>2030年全产业链产值突破1万亿元</strong>，绿氨年需求240-430万吨、绿色甲醇+绿氨年产量超5000万吨。商业化加速：全球首艘甲醇双燃料滚装船"港荣"轮在香港完成绿色甲醇加注（减碳85%）；国内首船绿氢合成氨1.3万吨出口韩国；制氢设备企业阳光氢能Q1海外发货量翻倍，<strong>订单已排至年底</strong>，客户遍及意大利、巴西、阿曼。
+      </div>
+      <div class="data-chips">
+        <span class="data-chip green">2030年产值 &gt;1万亿元</span>
+        <span class="data-chip green">首次写入政府工作报告</span>
+        <span class="data-chip">绿色甲醇减碳 85%</span>
+        <span class="data-chip orange">绿氨首批出口韩国</span>
+      </div>
+      <div class="card-footer">
+        <span class="source-label">来源：<strong>21世纪经济报道 / 央视财经</strong></span>
+        <a href="https://www.21jingji.com/article/20260331/herald/d139f865c0d5f43895fb1931f17054a8.html" class="read-link" target="_blank">阅读原文 <svg viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Section: 国际动态 -->
+    <div class="section-title">🌐 国际规则</div>
+
+    <!-- 6. IMO MEPC84 -->
+    <div class="card intl">
+      <div class="card-meta">
+        <span class="tag intl">国际</span>
+        <span class="tag hot">⚠️ 关键节点</span>
+        <span class="card-date">4月3日分析</span>
+      </div>
+      <div class="card-title">
+        <a href="https://www.sohu.com/a/1004863339_120663609" target="_blank">
+          IMO MEPC 84本月底召开——全球航运减排规则2026年进入决战，中国船企提速应对
+        </a>
+      </div>
+      <div class="card-summary">
+        <strong>4月27日至5月1日，IMO海上环境保护委员会第84届会议（MEPC 84）将在伦敦召开</strong>，这是全球航运净零框架进入表决阶段的关键会议。与此同时，欧盟EU ETS自2026年1月起<strong>要求航运业承担100%排放配额成本</strong>，FuelEU Maritime合规文件须于6月30日前备齐，违规将面临重罚。中国应对进展：<strong>中远海运首批4艘16,000TEU甲醇双燃料集装箱船已全部交付</strong>（3月完成，含"百合花"号），单船年减排约12万吨CO₂，搭载国产WinGD甲醇双燃料主机，EEDI较基线提升50%以上；全球替代燃料船运力占比已升至9.4%，甲醇成当前主流路线。
+      </div>
+      <div class="data-chips">
+        <span class="data-chip green">中远海运4艘甲醇船全部交付</span>
+        <span class="data-chip">单船年减排 12万吨 CO₂</span>
+        <span class="data-chip orange">MEPC 84：4月27日-5月1日</span>
+        <span class="data-chip">全球替代燃料船运力 9.4%</span>
+      </div>
+      <div class="card-footer">
+        <span class="source-label">来源：<strong>搜狐财经 / 克拉克森 / IMO</strong></span>
+        <a href="https://www.sohu.com/a/1004863339_120663609" class="read-link" target="_blank">阅读原文 <svg viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      </div>
+    </div>
+
+    <!-- 编辑洞察 -->
+    <div class="insight-card">
+      <div class="insight-label">💡 编辑洞察</div>
+      <div class="insight-title">从"单点突破"到"体系成型"——绿色航运进入质变临界区</div>
+      <div class="insight-text">
+        本期日报的六条新闻共同指向一个信号：<strong>中国绿色航运已从"单点示范"走向"体系建设"阶段</strong>。
+        一看技术端：全球最大纯电集装箱船"宁远电鲲"完成发证、万吨级内河电船"葛洲坝号"在建，国产绿色动力船订单占比70%——中国在技术规模和品类宽度上均已全球领先；
+        二看规范端：长江充换电/甲醇加注指南落地执行，与3月底的海事局内河技术规范一起，形成"国家标准+操作手册"双层覆盖，告别"有船没规范"的尴尬局面；
+        三看燃料端：绿色燃料写入政府工作报告、绿氨出口创收、制氢设备订单排至年底，绿色燃料供应链从"试验室"走向"产业化"；
+        四看国际合规端：MEPC 84倒计时+EU ETS全额成本落地，<strong>欧洲航线的合规压力将加速中国船东的绿色化决策，今年下半年甲醇船、电动船订单或将迎来新一轮高峰。</strong>
+      </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <div class="nav-footer">
+      <div class="nav-prev">
+        <a href="新能源船舶日报_20260403.html">← 2026-04-03</a>
+      </div>
+      <div class="footer-brand">新能源船舶日报 · 绿色航运追踪</div>
+    </div>
+  </div>
+</body>
+</html>
