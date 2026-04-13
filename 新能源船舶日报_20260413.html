@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新能源船舶日报 · 2026年4月13日</title>
+  <style>
+    :root {
+      --primary: #0a4f8c;
+      --primary-light: #1a6fbf;
+      --accent: #00b4d8;
+      --accent2: #06d6a0;
+      --accent3: #f4a261;
+      --accent4: #e76f51;
+      --bg-dark: #071a2e;
+      --bg-mid: #0d2847;
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(0,180,216,0.18);
+      --text: #e8f4fd;
+      --text-muted: #8ab3cc;
+      --tag-policy: #00b4d8;
+      --tag-market: #06d6a0;
+      --tag-tech: #a78bfa;
+      --tag-intl: #f4a261;
+      --tag-area: #fb923c;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(160deg, #071a2e 0%, #0d2847 40%, #0a3d62 70%, #071a2e 100%);
+      min-height: 100vh;
+      color: var(--text);
+    }
+
+    /* 星空背景 */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 40% 10%, rgba(255,255,255,0.7) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 25%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 85% 75%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 75% 5%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 70%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 30%, rgba(255,255,255,0.5) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 48px 0 32px;
+      border-bottom: 1px solid rgba(0,180,216,0.2);
+      margin-bottom: 32px;
+    }
+
+    .header-badge {
+      display: inline-block;
+      background: rgba(0,180,216,0.15);
+      border: 1px solid rgba(0,180,216,0.3);
+      color: var(--accent);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #e8f4fd 0%, #00b4d8 50%, #06d6a0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+
+    .header-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .header-date {
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .header-tag {
+      background: rgba(167,139,250,0.15);
+      border: 1px solid rgba(167,139,250,0.3);
+      color: #a78bfa;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    .header-tag.green {
+      background: rgba(6,214,160,0.12);
+      border-color: rgba(6,214,160,0.3);
+      color: var(--accent2);
+    }
+
+    .header-tag.orange {
+      background: rgba(244,162,97,0.12);
+      border-color: rgba(244,162,97,0.3);
+      color: var(--accent3);
+    }
+
+    /* 摘要栏 */
+    .summary-bar {
+      background: linear-gradient(135deg, rgba(0,180,216,0.08) 0%, rgba(6,214,160,0.06) 100%);
+      border: 1px solid rgba(0,180,216,0.2);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 36px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .summary-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .summary-text {
+      font-size: 0.97rem;
+      line-height: 1.7;
+      color: #c8e6f8;
+    }
+
+    .summary-text strong {
+      color: var(--accent);
+    }
+
+    /* 新闻卡片 */
+    .news-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,180,216,0.15), 0 4px 12px rgba(0,0,0,0.4);
+      border-color: rgba(0,180,216,0.4);
+    }
+
+    .card-stripe {
+      height: 4px;
+    }
+
+    .card-body {
+      padding: 28px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .card-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .card-title-wrap {
+      flex: 1;
+    }
+
+    .card-category {
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .card-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #e8f4fd;
+    }
+
+    .card-event {
+      font-size: 0.92rem;
+      color: #b8d8ec;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .card-details {
+      margin-bottom: 16px;
+    }
+
+    .card-details ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card-details ul li {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      padding: 5px 0 5px 18px;
+      position: relative;
+      line-height: 1.6;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .card-details ul li:last-child {
+      border-bottom: none;
+    }
+
+    .card-details ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .card-highlight {
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+
+    .card-why {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .card-why strong {
+      color: #c8e6f8;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .source-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .card-link {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .card-link:hover { opacity: 1; }
+
+    /* 配色主题 */
+    .theme-policy .card-stripe { background: linear-gradient(90deg, #00b4d8, #0096c7); }
+    .theme-policy .card-num { background: rgba(0,180,216,0.15); color: #00b4d8; border: 1px solid rgba(0,180,216,0.3); }
+    .theme-policy .card-category { color: #00b4d8; }
+    .theme-policy .card-highlight { background: rgba(0,180,216,0.08); border-left: 3px solid #00b4d8; }
+
+    .theme-tech .card-stripe { background: linear-gradient(90deg, #a78bfa, #7c3aed); }
+    .theme-tech .card-num { background: rgba(167,139,250,0.15); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); }
+    .theme-tech .card-category { color: #a78bfa; }
+    .theme-tech .card-highlight { background: rgba(167,139,250,0.08); border-left: 3px solid #a78bfa; }
+
+    .theme-market .card-stripe { background: linear-gradient(90deg, #06d6a0, #059669); }
+    .theme-market .card-num { background: rgba(6,214,160,0.15); color: #06d6a0; border: 1px solid rgba(6,214,160,0.3); }
+    .theme-market .card-category { color: #06d6a0; }
+    .theme-market .card-highlight { background: rgba(6,214,160,0.08); border-left: 3px solid #06d6a0; }
+
+    .theme-intl .card-stripe { background: linear-gradient(90deg, #f4a261, #e76f51); }
+    .theme-intl .card-num { background: rgba(244,162,97,0.15); color: #f4a261; border: 1px solid rgba(244,162,97,0.3); }
+    .theme-intl .card-category { color: #f4a261; }
+    .theme-intl .card-highlight { background: rgba(244,162,97,0.08); border-left: 3px solid #f4a261; }
+
+    .theme-corp .card-stripe { background: linear-gradient(90deg, #fb923c, #ea580c); }
+    .theme-corp .card-num { background: rgba(251,146,60,0.15); color: #fb923c; border: 1px solid rgba(251,146,60,0.3); }
+    .theme-corp .card-category { color: #fb923c; }
+    .theme-corp .card-highlight { background: rgba(251,146,60,0.08); border-left: 3px solid #fb923c; }
+
+    /* 底部 */
+    .footer {
+      border-top: 1px solid rgba(0,180,216,0.15);
+      padding-top: 32px;
+      margin-top: 20px;
+    }
+
+    .footer-insight {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      font-size: 0.92rem;
+      color: #b8d8ec;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .footer-insight strong {
+      color: var(--accent2);
+    }
+
+    .footer-source {
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(138,179,204,0.5);
+      margin-bottom: 24px;
+    }
+
+    .nav-prev {
+      display: flex;
+      justify-content: flex-start;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-prev a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .nav-prev a:hover {
+      background: rgba(0,180,216,0.1);
+      border-color: rgba(0,180,216,0.2);
+      color: var(--accent);
+    }
+
+    /* 期号 */
+    .issue-badge {
+      display: inline-block;
+      background: rgba(167,139,250,0.1);
+      border: 1px solid rgba(167,139,250,0.25);
+      color: #a78bfa;
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: 10px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .header h1 { font-size: 1.8rem; }
+      .card-body { padding: 20px 16px; }
+      .card-header { gap: 12px; }
+      .card-title { font-size: 1rem; }
+      .summary-bar { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-badge">🚢 新能源船舶 · 行业情报</div>
+      <h1>新能源船舶日报<span class="issue-badge">第十期</span></h1>
+      <p class="header-sub">技术进展 · 政策动态 · 市场动态 · 国际规则</p>
+      <div class="header-meta">
+        <span class="header-date">📅 2026年4月13日（周一）</span>
+        <span class="header-tag">⚡ 电动化</span>
+        <span class="header-tag green">🌿 绿色燃料</span>
+        <span class="header-tag orange">🌐 国际规则</span>
+      </div>
+    </header>
+
+    <!-- 摘要栏 -->
+    <div class="summary-bar">
+      <div class="summary-icon">📡</div>
+      <div class="summary-text">
+        本期聚焦一个政策里程碑、一项国际认证突破与一场影响深远的全球博弈：<strong>海事局五年技术规范路线图</strong>正式发布，为氨/氢/核动力、智能船、碳捕集排定时间表；<strong>PACK换电船"河豚蔚蓝02"</strong>同获BV+DNV+CCS三大船级社认可，开启中国内河换电技术出海通道；与此同时，<strong>MEPC84倒计时14天</strong>，美国+产油国联盟强势反对净零框架，全球航运碳规则走向再次进入高度不确定期。
+      </div>
+    </div>
+
+    <!-- 卡片1：海事局行动计划 -->
+    <div class="news-card theme-policy">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-num">01</div>
+          <div class="card-title-wrap">
+            <div class="card-category">📋 政策动态</div>
+            <div class="card-title">海事局发布《绿色智能船舶技术规范体系建设行动计划（2026-2030年）》</div>
+          </div>
+        </div>
+        <div class="card-event">
+          交通运输部海事局于2026年4月10日正式印发《加快绿色智能船舶技术规范体系建设行动计划（2026-2030年）》，明确五年内完成<strong>5类21项绿色规范</strong>和<strong>4类19项智能船规范</strong>的制修订工作，是继3月27日"技术规范实施指南"后，中国绿色智能船舶顶层设计的重大完善。
+        </div>
+        <div class="card-details">
+          <ul>
+            <li>绿色规范覆盖：纯电/氨/甲醇/LNG/氢/核动力/二甲醚，以及碳捕集、风力助推、太阳能、空气润滑、废热回收5项绿色技术</li>
+            <li>2026年率先落地7项：氨燃料暂行规则、甲醇内河加注趸船规则、内河智能船分级规则、无人艇技术与检验规则</li>
+            <li>2030年完成氢燃料+核动力+换电趸船+数字孪生检验全系列规范，实现体系基本完备</li>
+            <li>保障措施：政府主导+市场导向+企业主体，遴选示范项目"以点带面"</li>
+          </ul>
+        </div>
+        <div class="card-highlight">
+          📌 <strong>两步走时间表：</strong>2027年绿色体系"较为完善"，2030年智能体系"基本完备"。氨燃料船今年就有暂行规则，氢燃料船2030年才有正式规则——清晰揭示技术成熟度排序。
+        </div>
+        <div class="card-why">
+          💡 <strong>为何关注：</strong>此前中国新能源船舶的一大痛点是"建好了但没有完整规范体系"。此次5年路线图逐项排定时间节点，意味着从电池换电到氨燃料、碳捕集均有明确的合规时间窗口，可直接指导船厂/运营商的技术路线选择与投资决策。
+        </div>
+        <div class="card-footer">
+          <span class="source-tag">🏛️ 中华人民共和国海事局</span>
+          <a href="https://www.msa.gov.cn/html/cnmsa/xxgk/article/2026/eb65975543ca44c2b3bf1d816aa240cf.html" class="card-link" target="_blank">查看原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 卡片2：PACK换电船三大船级社认可 -->
+    <div class="news-card theme-tech">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-num">02</div>
+          <div class="card-title-wrap">
+            <div class="card-category">⚡ 技术突破</div>
+            <div class="card-title">全球首制PACK换电船系列揽获BV+DNV+CCS三大船级社全面认可</div>
+          </div>
+        </div>
+        <div class="card-event">
+          安徽三点水新能源科技（联合国轩高科）自主研发的88.9米内河电动集装箱散货两用船"河豚蔚蓝02"，近日相继获法国船级社（BV）AIP认证、挪威船级社（DNV）AIP认证，加上此前中国船级社（CCS）颁发的电芯/模组/电池包型式认可及产品证书，成为全球首个获得三大主流国际船级社全面认证的PACK换电船型。
+        </div>
+        <div class="card-details">
+          <ul>
+            <li>换电模式创新：整箱PACK换电，替代传统充电，大幅缩短港口停泊补能时间</li>
+            <li>88.9米船长，集装箱装载量较01号提升30%以上，适配内河B级航区</li>
+            <li>CCS认证范围：电芯、模组、电池包型式认可+产品证书+"动力电池箱总成系统"专项证书</li>
+            <li>BV+DNV认证：两大国际船级社原则性认可（AIP），为欧洲市场准入打开通道</li>
+          </ul>
+        </div>
+        <div class="card-highlight">
+          🔋 <strong>技术里程碑：</strong>"河豚蔚蓝"系列实现"货—船—车—储"一体化方案，同一PACK电池可在内河船、电动卡车、岸电储能间互换，是中国内河能源互联网的具体落地。
+        </div>
+        <div class="card-why">
+          💡 <strong>为何关注：</strong>同时获得BV、DNV、CCS认可，意味着该换电方案具备国际市场准入条件，打破了中国内河绿色船型"国内认可、国际受限"的困境。结合海事局上述行动计划中"换电趸船规则2030年完成"的安排，换电船型的商业化路径已基本打通。
+        </div>
+        <div class="card-footer">
+          <span class="source-tag">⚓ 龙de船人</span>
+          <a href="https://www.imarine.cn/223610.html" class="card-link" target="_blank">查看原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 卡片3：本周船厂订单 -->
+    <div class="news-card theme-market">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-num">03</div>
+          <div class="card-title-wrap">
+            <div class="card-category">📊 市场动态</div>
+            <div class="card-title">上周中国船厂周订单35+4艘：甲醇双燃料、LNG加注船、万箱船活跃</div>
+          </div>
+        </div>
+        <div class="card-event">
+          据龙de船人整理，4月6日至12日，中国船厂共获约35+4艘新船订单，绿色新能源船型依然是主力。广船国际5万吨甲醇双燃料化学品/成品油船4号船完成过驳下水；中集太平洋海工新建LNG加注船下水；舟山船厂18艘LNG双燃料万箱船进入连续建造阶段；15000吨级甲醇单一燃料特定航线江海直达船完成试航。
+        </div>
+        <div class="card-details">
+          <ul>
+            <li>广船国际：5万吨甲醇双燃料化学品/成品油船4号船过驳下水（系列化量产进程）</li>
+            <li>中集太平洋海工：LNG加注船完成下水，为内河/近海LNG加注基础设施补链</li>
+            <li>舟山长宏：18艘LNG双燃料万箱船进入连续建造，产能爬坡明显</li>
+            <li>15000吨甲醇单燃料江海直达船完成试航，特定航线甲醇专用船型商业化验证完成</li>
+          </ul>
+        </div>
+        <div class="card-highlight">
+          📦 <strong>绿色化趋势：</strong>本周订单中，甲醇+LNG船型合计占绿色订单绝对主流，主流主力船型已从"是否要绿色"变为"选哪种绿色燃料路线"。
+        </div>
+        <div class="card-why">
+          💡 <strong>为何关注：</strong>甲醇双燃料船进入系列化批量建造阶段（4号船），标志着该技术路线已跨越"示范→量产"临界点。同时LNG加注船下水进一步完善绿色燃料加注基础设施链条，与燃料船形成供需闭环。
+        </div>
+        <div class="card-footer">
+          <span class="source-tag">⚓ 龙de船人</span>
+          <a href="https://www.imarine.cn" class="card-link" target="_blank">查看原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 卡片4：MEPC84博弈 -->
+    <div class="news-card theme-intl">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-num">04</div>
+          <div class="card-title-wrap">
+            <div class="card-category">🌐 国际规则</div>
+            <div class="card-title">MEPC84倒计时14天，美国+产油国联盟强势反对，净零框架再度面临延期风险</div>
+          </div>
+        </div>
+        <div class="card-event">
+          IMO MEPC84将于4月27日至5月1日在伦敦召开（ISWG-GHG 21预热会议4月20-24日），本应是净零框架最终定稿的关键会议。然而，据信德海事网3月30日报道，美国明确要求终止所有IMO净零框架进程；沙特、阿联酋、俄罗斯等产油国联盟提出"共识基础原则"、反对碳税与基金；日本提出"渐进修补"方案；仅小岛国联盟和所罗门群岛等力主"按原样或更强版本通过"，各方分歧白热化。
+        </div>
+        <div class="card-details">
+          <ul>
+            <li>美国立场：终止净零框架所有进程，反对任何形式经济机制（碳税/基金/罚款）</li>
+            <li>产油国联盟（9国）：技术中立、反对量化参数、坚持共同但有区别责任</li>
+            <li>激进派（6个小岛国）：要求更高GFI降幅目标，补救单价上调至$300/吨CO₂</li>
+            <li>中国：低调聚焦技术细节（GFI计算、ZNZ奖励实施），未提大立场提案</li>
+            <li>欧盟：内部分化（希腊、塞浦路斯等持保留），尚未形成统一立场</li>
+          </ul>
+        </div>
+        <div class="card-highlight">
+          ⚠️ <strong>可能结果预判：</strong>再次延期概率较高（分歧过大），最乐观结果为"小幅修订后通过"（日本式调整），按原样通过或彻底推翻均可能性极低。MEPC84更多是"前哨战"而非最终决断。
+        </div>
+        <div class="card-why">
+          💡 <strong>为何关注：</strong>净零框架若再次延期，EU ETS将继续是中国船舶最直接的合规成本压力。若"小幅修订"方案通过，全球碳定价规则将在2028年前强制落地，涉及500亿级以上的中国航运业成本重构。无论结果如何，MEPC84后的两周将是绿色船舶市场最重要的政策时间窗口之一。
+        </div>
+        <div class="card-footer">
+          <span class="source-tag">🌊 信德海事网</span>
+          <a href="https://www.xindemarinenews.com/topic/yazaishuiguanli/63287.html" class="card-link" target="_blank">查看原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 卡片5：甲醇船系列量产 -->
+    <div class="news-card theme-corp">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-num">05</div>
+          <div class="card-title-wrap">
+            <div class="card-category">🏭 企业动态</div>
+            <div class="card-title">甲醇船型进入系列量产关键期：15000吨江海直达船试航完成，广船四号下水</div>
+          </div>
+        </div>
+        <div class="card-event">
+          本周甲醇燃料船舶领域出现两个重要节点：国内15000吨级甲醇单一燃料特定航线江海直达船完成试航，标志着甲醇单燃料内河-近海直达方案完成商业化验证；广船国际5万吨甲醇双燃料化学品/成品油船系列的第4艘船完成过驳下水，系列化生产进程加速。
+        </div>
+        <div class="card-details">
+          <ul>
+            <li>15000吨甲醇单燃料江海直达船：全程使用甲醇燃料，实现内河至近海不换燃料直达</li>
+            <li>广船国际甲醇系列：双燃料方案（甲醇+传统燃料灵活切换），第4艘进入下水节点</li>
+            <li>中船七〇三所承建的氨燃料发动机试验台辅机系统本周投用，为氨燃料船型研发提速</li>
+            <li>恒力重工本周传出"拿下大单"消息，具体船型以绿色船舶为主</li>
+          </ul>
+        </div>
+        <div class="card-highlight">
+          ⚡ <strong>量产临界点：</strong>当甲醇系列船同时出现"单燃料+双燃料"、"内河+近海"多型号并行时，意味着甲醇动力已从"单一示范"走向"产品线扩张"阶段，是技术商业化成熟度的重要标志。
+        </div>
+        <div class="card-why">
+          💡 <strong>为何关注：</strong>甲醇船型量产节奏直接影响绿色甲醇燃料需求曲线。随着手持300余艘甲醇船（全球数据）陆续进入交付期，2026-2028年绿色甲醇供需矛盾将持续升温，甲醇燃料生产、加注、存储基础设施的投资窗口已经打开。
+        </div>
+        <div class="card-footer">
+          <span class="source-tag">⚓ 龙de船人 / 国际船舶网</span>
+          <a href="https://www.imarine.cn" class="card-link" target="_blank">查看原文 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部 -->
+    <footer class="footer">
+      <div class="footer-insight">
+        🔭 本期编辑洞察：<strong>"规范→认证→量产"三步闭环正在形成</strong>——海事局五年路线图提供合规时间表，三大船级社认证打通国际通道，甲醇/换电船型进入系列化量产，中国新能源船舶正从"政策驱动"转向"市场内生"的质变节点。MEPC84是本月最大变量，其结果将决定全球合规成本节奏。
+      </div>
+      <div class="footer-source">
+        数据来源：中华人民共和国海事局 / 龙de船人 / 信德海事网 / 国际船舶网 / 163.com<br>
+        整理时间：2026年4月13日 · 本日报仅供参考，不构成投资建议
+      </div>
+      <div class="nav-prev">
+        <a href="新能源船舶日报_20260407.html">← 2026-04-07</a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
