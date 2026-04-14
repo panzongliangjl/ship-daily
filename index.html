@@ -29,6 +29,7 @@
       margin: 0 auto;
       padding: 60px 24px 80px;
     }
+    /* ---- Header ---- */
     .header {
       text-align: center;
       margin-bottom: 60px;
@@ -58,19 +59,21 @@
       margin-bottom: 16px;
     }
     .header p {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.8;
+    }
+    .header p strong {
+      color: rgba(224,235,255,0.8);
     }
     .stats {
       display: flex;
       justify-content: center;
       gap: 32px;
       margin-top: 32px;
+      flex-wrap: wrap;
     }
-    .stat {
-      text-align: center;
-    }
+    .stat { text-align: center; }
     .stat-num {
       font-size: 28px;
       font-weight: 800;
@@ -81,8 +84,9 @@
       color: var(--muted);
       margin-top: 4px;
     }
+    /* ---- Section title ---- */
     .section-title {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -98,6 +102,7 @@
       height: 1px;
       background: rgba(255,255,255,0.06);
     }
+    /* ---- Timeline ---- */
     .timeline {
       position: relative;
       padding-left: 28px;
@@ -109,40 +114,43 @@
       top: 8px;
       bottom: 8px;
       width: 2px;
-      background: linear-gradient(180deg, rgba(0,212,170,0.4), rgba(0,102,255,0.4));
+      background: linear-gradient(180deg, rgba(255,107,53,0.6), rgba(0,212,170,0.3), rgba(0,102,255,0.2));
       border-radius: 2px;
     }
     .timeline-item {
       position: relative;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .timeline-item::before {
       content: '';
       position: absolute;
       left: -25px;
-      top: 18px;
+      top: 20px;
       width: 10px;
       height: 10px;
       background: var(--bg);
-      border: 2px solid var(--primary);
+      border: 2px solid rgba(0,212,170,0.5);
       border-radius: 50%;
+      transition: border-color 0.2s;
     }
     .timeline-item.latest::before {
       border-color: #ff6b35;
-      box-shadow: 0 0 8px rgba(255,107,53,0.4);
+      box-shadow: 0 0 8px rgba(255,107,53,0.5);
+      background: rgba(255,107,53,0.15);
     }
+    /* ---- Card ---- */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px 24px;
-      transition: all 0.25s ease;
+      border-radius: 14px;
+      padding: 18px 22px;
+      transition: all 0.22s ease;
       text-decoration: none;
       color: inherit;
       display: block;
     }
     .card:hover {
-      border-color: rgba(0,212,170,0.3);
+      border-color: rgba(0,212,170,0.35);
       background: rgba(0,212,170,0.05);
       transform: translateY(-2px);
     }
@@ -151,14 +159,16 @@
       background: rgba(255,107,53,0.04);
     }
     .card.latest:hover {
-      border-color: rgba(255,107,53,0.5);
-      background: rgba(255,107,53,0.08);
+      border-color: rgba(255,107,53,0.55);
+      background: rgba(255,107,53,0.09);
     }
     .card-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
+      gap: 8px;
+      flex-wrap: wrap;
     }
     .card-date {
       font-size: 12px;
@@ -166,186 +176,224 @@
       color: var(--primary);
       letter-spacing: 1px;
     }
-    .card.latest .card-date {
-      color: #ff6b35;
-    }
-    .card-tag {
+    .card.latest .card-date { color: #ff6b35; }
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag {
       font-size: 11px;
-      padding: 3px 10px;
-      background: rgba(0,102,255,0.15);
-      border: 1px solid rgba(0,102,255,0.2);
+      padding: 2px 9px;
       border-radius: 100px;
-      color: #4d94ff;
       font-weight: 600;
     }
-    .card-tag.deep {
-      background: rgba(123,97,255,0.15);
-      border-color: rgba(123,97,255,0.25);
-      color: #a78bfa;
-    }
-    .card-tag.latest-tag {
-      background: rgba(255,107,53,0.15);
-      border-color: rgba(255,107,53,0.25);
-      color: #ff8f6b;
-    }
+    .tag-new  { background: rgba(255,107,53,0.15); border: 1px solid rgba(255,107,53,0.25); color: #ff8f6b; }
+    .tag-deep { background: rgba(123,97,255,0.15); border: 1px solid rgba(123,97,255,0.25); color: #a78bfa; }
+    .tag-norm { background: rgba(0,102,255,0.12);  border: 1px solid rgba(0,102,255,0.2);   color: #4d94ff; }
+    .tag-first{ background: rgba(0,212,170,0.12);  border: 1px solid rgba(0,212,170,0.25);  color: #00d4aa; }
     .card-title {
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 600;
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.45;
+      margin-bottom: 5px;
     }
     .card-desc {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--muted);
-      margin-top: 6px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
+    /* ---- Footer ---- */
     .footer {
       text-align: center;
       margin-top: 60px;
-      padding-top: 32px;
+      padding-top: 28px;
       border-top: 1px solid rgba(255,255,255,0.06);
       font-size: 13px;
       color: var(--muted);
+      line-height: 1.8;
     }
-    .footer a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
-    .update-info {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,107,53,0.1);
-      border: 1px solid rgba(255,107,53,0.2);
-      border-radius: 8px;
-      padding: 10px 18px;
-      font-size: 13px;
-      color: #ff8f6b;
-      margin-top: 20px;
-    }
-    .pulse {
-      width: 8px;
-      height: 8px;
+    .footer a { color: var(--primary); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    /* ---- Pulse dot ---- */
+    .pulse-dot {
+      display: inline-block;
+      width: 7px; height: 7px;
       background: #ff6b35;
       border-radius: 50%;
+      margin-right: 5px;
       animation: pulse 2s infinite;
+      vertical-align: middle;
     }
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
+      0%,100%{opacity:1;transform:scale(1)}
+      50%{opacity:.5;transform:scale(1.35)}
+    }
+    @media(max-width:600px){
+      .header h1{font-size:26px}
+      .stats{gap:20px}
+      .stat-num{font-size:22px}
     }
   </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
 
-    <!-- Header -->
-    <div class="header">
-      <div class="badge">🚢 全品类绿色船艇</div>
-      <h1>新能源船舶船艇日报</h1>
-      <p>每日追踪绿色航运、电动船舶、氢能甲醇燃料、智能化技术<br>等前沿动态，涵盖<strong>游艇、公务船、内河货船、港口作业船、拖轮、渡船、集装箱船</strong>等全品类</p>
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-num">6</div>
-          <div class="stat-label">期日报</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">4</div>
-          <div class="stat-label">期深度分析</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">2026</div>
-          <div class="stat-label">持续更新</div>
-        </div>
+  <!-- Header -->
+  <div class="header">
+    <div class="badge">🚢 全品类绿色船艇</div>
+    <h1>新能源船舶船艇日报</h1>
+    <p>
+      每日追踪 <strong>游艇 · 公务船 · 内河货船 · 港口作业船 · 拖轮 · 渡船 · 集装箱船</strong> 等全品类<br>
+      新能源动力技术进展、政策动态、市场动态、企业动态
+    </p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">10</div>
+        <div class="stat-label">期日报</div>
       </div>
-      <div class="update-info">
-        <div class="pulse"></div>
-        CIBS 2026 上海船艇展倒计时 · 3月29日开幕
+      <div class="stat">
+        <div class="stat-num">4</div>
+        <div class="stat-label">期深度分析</div>
       </div>
-    </div>
-
-    <!-- Daily Reports -->
-    <div class="section-title">📅 往期日报</div>
-    <div class="timeline">
-
-      <!-- Latest -->
-      <div class="timeline-item latest">
-        <a href="新能源船舶日报_20260326.html" class="card latest">
-          <div class="card-top">
-            <span class="card-date">2026.03.26</span>
-            <span class="card-tag latest-tag">NEW</span>
-          </div>
-          <div class="card-title">第6期 · 两周一刊 · 深度分析</div>
-          <div class="card-desc">维京天秤座号氢动力邮轮下水 · 扬州中远海运甲醇系列收官 · 广西首批19艘批量签约3.36亿</div>
-        </a>
+      <div class="stat">
+        <div class="stat-num">2026</div>
+        <div class="stat-label">持续更新中</div>
       </div>
-
-      <div class="timeline-item">
-        <a href="新能源船舶日报_20260324b.html" class="card">
-          <div class="card-top">
-            <span class="card-date">2026.03.24</span>
-            <span class="card-tag deep">深度分析</span>
-          </div>
-          <div class="card-title">本周三大突破 · 两大信号 · 一个窗口</div>
-          <div class="card-desc">山东纯电船首次出口国际 · 氨燃料发动机商业化元年 · 福建三年行动计划</div>
-        </a>
-      </div>
-
-      <div class="timeline-item">
-        <a href="新能源船舶日报_20260324.html" class="card">
-          <div class="card-top">
-            <span class="card-date">2026.03.24</span>
-            <span class="card-tag">日常版</span>
-          </div>
-          <div class="card-title">山东纯电内河船首次出口 · 中远海运66艘甲醇船</div>
-          <div class="card-desc">182TEU电动船出口达飞集团 · CIBS 2026 倒计时5天</div>
-        </a>
-      </div>
-
-      <div class="timeline-item">
-        <a href="新能源船舶日报_20260319.html" class="card">
-          <div class="card-top">
-            <span class="card-date">2026.03.19</span>
-            <span class="card-tag">日常版</span>
-          </div>
-          <div class="card-title">交通部补贴细则发布 · 武汉82艘签约</div>
-          <div class="card-desc">老旧船舶报废更新补贴 · 长三角电动船舶充换电网络</div>
-        </a>
-      </div>
-
-      <div class="timeline-item">
-        <a href="新能源船舶日报_20260318.html" class="card">
-          <div class="card-top">
-            <span class="card-date">2026.03.18</span>
-            <span class="card-tag">日常版</span>
-          </div>
-          <div class="card-title">电动船舶市场规模367.5亿</div>
-          <div class="card-desc">EVTank预测 · 锂电池需求11.2GWh · 中远海运甲醇双燃料船</div>
-        </a>
-      </div>
-
-      <div class="timeline-item">
-        <a href="新能源船舶日报_20260317.html" class="card">
-          <div class="card-top">
-            <span class="card-date">2026.03.17</span>
-            <span class="card-tag">首发</span>
-          </div>
-          <div class="card-title">山东45艘订单签约超12亿</div>
-          <div class="card-desc">首期日报 · 政策动态 · 市场趋势</div>
-        </a>
-      </div>
-
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <p>新能源船舶船艇日报 · 由 <a href="https://github.com/panzongliangjl/ship-daily">WorkBuddy</a> 自动整理发布</p>
-      <p style="margin-top:8px;">数据来源于公开网络资讯，仅供行业参考，不构成投资建议</p>
     </div>
   </div>
+
+  <!-- List -->
+  <div class="section-title">📅 往期日报</div>
+  <div class="timeline">
+
+    <!-- 第10期 最新 -->
+    <div class="timeline-item latest">
+      <a href="新能源船舶日报_20260413.html" class="card latest">
+        <div class="card-top">
+          <span class="card-date">2026.04.13 &nbsp;·&nbsp; 第十期</span>
+          <div class="tags">
+            <span class="tag tag-new"><span class="pulse-dot"></span>最新</span>
+          </div>
+        </div>
+        <div class="card-title">海事局五年技术规范路线图 · PACK换电船获三大船级社认可 · MEPC84前哨战</div>
+        <div class="card-desc">《绿色智能船舶规范体系行动计划2026-2030》发布 · 河豚蔚蓝02获BV+DNV+CCS认证 · 甲醇江海直达船完成试航</div>
+      </a>
+    </div>
+
+    <!-- 第9期 -->
+    <div class="timeline-item">
+      <a href="新能源船舶日报_20260407.html" class="card">
+        <div class="card-top">
+          <span class="card-date">2026.04.07 &nbsp;·&nbsp; 第九期</span>
+          <div class="tags"><span class="tag tag-norm">周度</span></div>
+        </div>
+        <div class="card-title">"宁远电鲲"万吨级纯电集装箱船发证 · 爱达·花城号出坞 · 湖北千帆计划</div>
+        <div class="card-desc">全球最大740TEU纯电集装箱船CCS检验发证 · 国产第二艘大型邮轮出坞 · 2030年1000艘绿色智能船目标</div>
+      </a>
+    </div>
+
+    <!-- 第8期 -->
+    <div class="timeline-item">
+      <a href="新能源船舶日报_20260403.html" class="card">
+        <div class="card-top">
+          <span class="card-date">2026.04.03 &nbsp;·&nbsp; 第八期</span>
+          <div class="tags"><span class="tag tag-norm">周度</span></div>
+        </div>
+        <div class="card-title">以旧换新补贴单船最高4000万 · 长江首部充换电/甲醇加注操作指南</div>
+        <div class="card-desc">纯电/LNG补贴最高2200元/总吨 · Q1全球替代燃料船订单-37%但中国占83% · DNV数据解读</div>
+      </a>
+    </div>
+
+    <!-- 第7期 -->
+    <div class="timeline-item">
+      <a href="新能源船舶日报_20260327.html" class="card">
+        <div class="card-top">
+          <span class="card-date">2026.03.27 &nbsp;·&nbsp; 第七期</span>
+          <div class="tags"><span class="tag tag-norm">周度</span></div>
+        </div>
+        <div class="card-title">海事局新能源技术规范实施指南发布 · WinGD+远景：2050年绿氨成本将低于LNG</div>
+        <div class="card-desc">厦门港首批纯电拖轮两月减碳460吨 · 华光源海5600万购LNG集装箱船 · CIBS 2026开幕前夜</div>
+      </a>
+    </div>
+
+    <!-- 第6期 -->
+    <div class="timeline-item">
+      <a href="新能源船舶日报_20260326.html" class="card">
+        <div class="card-top">
+          <span class="card-date">2026.03.26 &nbsp;·&nbsp; 第六期</span>
+          <div class="tags"><span class="tag tag-deep">深度分析</span></div>
+        </div>
+        <div class="card-title">两周一刊 · 三层面透视行业临界点</div>
+        <div class="card-desc">维京天秤座氢动力邮轮下水 · 扬州中远海运甲醇系列收官 · 广西首批19艘签约3.36亿 · 福安百艘目标</div>
+      </a>
+    </div>
+
+    <!-- 第5期 -->
+    <div class="timeline-item">
+      <a href="新能源船舶日报_20260324b.html" class="card">
+        <div class="card-top">
+          <span class="card-date">2026.03.24 &nbsp;·&nbsp; 第五期</span>
+          <div class="tags"><span class="tag tag-deep">深度分析</span></div>
+        </div>
+        <div class="card-title">本周三大突破 · 两大信号 · 一个窗口</div>
+        <div class="card-desc">山东纯电船首次出口国际 · 氨燃料发动机商业化元年 · 福建三年行动计划50亿目标</div>
+      </a>
+    </div>
+
+    <!-- 第4期 -->
+    <div class="timeline-item">
+      <a href="新能源船舶日报_20260324.html" class="card">
+        <div class="card-top">
+          <span class="card-date">2026.03.24 &nbsp;·&nbsp; 第四期</span>
+          <div class="tags"><span class="tag tag-norm">日常版</span></div>
+        </div>
+        <div class="card-title">全球首艘碳纤维电动公务船深圳交付 · 中远海运66艘甲醇手持订单</div>
+        <div class="card-desc">182TEU纯电船出口达飞集团 · 中船首台氨燃料低速机交付 · CIBS 2026倒计时5天</div>
+      </a>
+    </div>
+
+    <!-- 第3期 -->
+    <div class="timeline-item">
+      <a href="新能源船舶日报_20260319.html" class="card">
+        <div class="card-top">
+          <span class="card-date">2026.03.19 &nbsp;·&nbsp; 第三期</span>
+          <div class="tags"><span class="tag tag-norm">日常版</span></div>
+        </div>
+        <div class="card-title">交通部老旧船补贴细则 · 武汉82艘新能源船舶签约</div>
+        <div class="card-desc">报废更新补贴政策 · 长三角充换电网络 · 海上制氢论坛</div>
+      </a>
+    </div>
+
+    <!-- 第2期 -->
+    <div class="timeline-item">
+      <a href="新能源船舶日报_20260318.html" class="card">
+        <div class="card-top">
+          <span class="card-date">2026.03.18 &nbsp;·&nbsp; 第二期</span>
+          <div class="tags"><span class="tag tag-norm">日常版</span></div>
+        </div>
+        <div class="card-title">电动船舶市场规模367.5亿预测 · 中远海运甲醇双燃料船</div>
+        <div class="card-desc">EVTank预测2026年市场规模 · 锂电池需求11.2GWh · 绿色船舶融资动态</div>
+      </a>
+    </div>
+
+    <!-- 第1期 -->
+    <div class="timeline-item">
+      <a href="新能源船舶日报_20260317.html" class="card">
+        <div class="card-top">
+          <span class="card-date">2026.03.17 &nbsp;·&nbsp; 第一期</span>
+          <div class="tags"><span class="tag tag-first">创刊号</span></div>
+        </div>
+        <div class="card-title">山东45艘新能源船舶订单签约超12亿</div>
+        <div class="card-desc">首期日报 · 政策动态 · 市场趋势 · 2026十大关注方向</div>
+      </a>
+    </div>
+
+  </div><!-- /timeline -->
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>新能源船舶船艇日报 · 由 <a href="https://github.com/panzongliangjl/ship-daily" target="_blank">WorkBuddy</a> 自动整理发布</p>
+    <p>数据来源于公开网络资讯，仅供行业参考，不构成投资建议</p>
+  </div>
+
+</div>
 </body>
 </html>
