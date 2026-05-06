@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新能源船舶日报 · 2026年5月6日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #040d1a;
+      --bg-card: rgba(10, 22, 45, 0.85);
+      --bg-card-hover: rgba(14, 28, 58, 0.95);
+      --accent-blue: #00c6ff;
+      --accent-cyan: #0ff0fc;
+      --accent-teal: #00e5c4;
+      --text-primary: #e8f4ff;
+      --text-secondary: #8ba8cc;
+      --text-muted: #4a6a90;
+      --border-subtle: rgba(0, 198, 255, 0.15);
+      --glow: 0 0 20px rgba(0, 198, 255, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Star field background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(0, 60, 130, 0.35) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 90%, rgba(0, 100, 80, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(0, 40, 90, 0.5) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 60px 0 40px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      display: block;
+      width: 160px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+      margin: 30px auto 0;
+    }
+
+    .header-badge {
+      display: inline-block;
+      border: 1px solid rgba(0, 198, 255, 0.4);
+      border-radius: 20px;
+      padding: 5px 18px;
+      font-size: 12px;
+      color: var(--accent-blue);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      background: rgba(0, 198, 255, 0.05);
+    }
+
+    .header h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff 0%, #a8d8ff 50%, #00c6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    .header-meta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 198, 255, 0.08);
+      border: 1px solid rgba(0, 198, 255, 0.2);
+      border-radius: 8px;
+      padding: 5px 14px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Summary banner */
+    .summary-banner {
+      background: linear-gradient(135deg, rgba(0, 40, 90, 0.7) 0%, rgba(0, 80, 70, 0.5) 100%);
+      border: 1px solid rgba(0, 229, 196, 0.25);
+      border-left: 4px solid var(--accent-teal);
+      border-radius: 12px;
+      padding: 20px 28px;
+      margin: 10px 0 36px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .summary-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .summary-text {
+      flex: 1;
+    }
+
+    .summary-label {
+      font-size: 11px;
+      color: var(--accent-teal);
+      letter-spacing: 2px;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .summary-content {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #c8e8ff;
+      font-family: 'Noto Serif SC', serif;
+    }
+
+    /* Section label */
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    /* News card */
+    .news-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), var(--glow);
+      border-color: rgba(0, 198, 255, 0.35);
+      background: var(--bg-card-hover);
+    }
+
+    .card-stripe {
+      height: 4px;
+      width: 100%;
+    }
+
+    .card-body {
+      padding: 24px 28px 22px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .card-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .card-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #e8f4ff;
+      flex: 1;
+    }
+
+    .card-summary {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #9ab8d8;
+      margin-bottom: 16px;
+      padding-left: 46px;
+    }
+
+    .detail-list {
+      list-style: none;
+      padding-left: 46px;
+      margin-bottom: 18px;
+    }
+
+    .detail-list li {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: #8ba8cc;
+      padding: 3px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .detail-list li::before {
+      content: '›';
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+
+    .highlight-box {
+      margin: 0 0 18px 46px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+
+    .why-care {
+      padding: 12px 18px;
+      margin: 0 0 18px 46px;
+      background: rgba(0, 198, 255, 0.06);
+      border-left: 3px solid rgba(0, 198, 255, 0.5);
+      border-radius: 0 8px 8px 0;
+      font-size: 13.5px;
+      color: #a8c8e8;
+      line-height: 1.7;
+    }
+
+    .why-care-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--accent-blue);
+      font-weight: 500;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .card-footer {
+      padding: 10px 28px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .source-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .category-tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    /* Color schemes for each card */
+    .card-1 .card-stripe { background: linear-gradient(90deg, #00c6ff, #0072ff); }
+    .card-1 .card-num { background: rgba(0, 114, 255, 0.2); color: #00c6ff; border: 1px solid rgba(0, 198, 255, 0.3); }
+    .card-1 .highlight-box { background: rgba(0, 114, 255, 0.1); border: 1px solid rgba(0, 198, 255, 0.2); color: #80d8ff; }
+    .card-1 .detail-list li::before { color: #00c6ff; }
+    .card-1 .category-tag { background: rgba(0, 114, 255, 0.15); color: #00c6ff; border: 1px solid rgba(0, 198, 255, 0.2); }
+
+    .card-2 .card-stripe { background: linear-gradient(90deg, #00e5c4, #00b894); }
+    .card-2 .card-num { background: rgba(0, 184, 148, 0.2); color: #00e5c4; border: 1px solid rgba(0, 229, 196, 0.3); }
+    .card-2 .highlight-box { background: rgba(0, 184, 148, 0.1); border: 1px solid rgba(0, 229, 196, 0.2); color: #80ffe8; }
+    .card-2 .detail-list li::before { color: #00e5c4; }
+    .card-2 .category-tag { background: rgba(0, 184, 148, 0.15); color: #00e5c4; border: 1px solid rgba(0, 229, 196, 0.2); }
+
+    .card-3 .card-stripe { background: linear-gradient(90deg, #f7a800, #e84393); }
+    .card-3 .card-num { background: rgba(247, 168, 0, 0.2); color: #f7a800; border: 1px solid rgba(247, 168, 0, 0.3); }
+    .card-3 .highlight-box { background: rgba(247, 168, 0, 0.08); border: 1px solid rgba(247, 168, 0, 0.2); color: #ffd47a; }
+    .card-3 .detail-list li::before { color: #f7a800; }
+    .card-3 .category-tag { background: rgba(247, 168, 0, 0.15); color: #f7a800; border: 1px solid rgba(247, 168, 0, 0.2); }
+
+    .card-4 .card-stripe { background: linear-gradient(90deg, #a855f7, #6366f1); }
+    .card-4 .card-num { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .card-4 .highlight-box { background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(168, 85, 247, 0.2); color: #c4b5fd; }
+    .card-4 .detail-list li::before { color: #a855f7; }
+    .card-4 .category-tag { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.2); }
+
+    .card-5 .card-stripe { background: linear-gradient(90deg, #ef4444, #f97316); }
+    .card-5 .card-num { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .card-5 .highlight-box { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2); color: #fca5a5; }
+    .card-5 .detail-list li::before { color: #ef4444; }
+    .card-5 .category-tag { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.2); }
+
+    /* Bottom conclusion */
+    .conclusion {
+      margin-top: 40px;
+      padding: 28px 32px;
+      background: linear-gradient(135deg, rgba(0, 40, 90, 0.6) 0%, rgba(0, 60, 50, 0.4) 100%);
+      border: 1px solid rgba(0, 198, 255, 0.2);
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .conclusion-quote {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 16px;
+      line-height: 1.9;
+      color: #c8e4ff;
+      margin-bottom: 16px;
+    }
+
+    .conclusion-quote strong {
+      color: var(--accent-cyan);
+    }
+
+    .data-source {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      margin-top: 36px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(0, 198, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(0, 198, 255, 0.05);
+      border: 1px solid rgba(0, 198, 255, 0.2);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--accent-blue);
+      font-size: 13px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(0, 198, 255, 0.12);
+      border-color: rgba(0, 198, 255, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .card-body { padding: 18px 18px 14px; }
+      .card-footer { padding: 8px 18px 14px; }
+      .card-summary, .detail-list, .highlight-box, .why-care { padding-left: 0; margin-left: 0; }
+      .header { padding: 40px 0 28px; }
+      .summary-banner { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-badge">🚢 Green Shipping Daily</div>
+      <h1>新能源船舶 · 船艇日报</h1>
+      <div class="header-meta">
+        <span class="meta-tag">📅 2026年5月6日（周三）</span>
+        <span class="meta-tag">🌊 第十一期</span>
+        <span class="meta-tag">⚡ 涵盖全品类新能源船艇</span>
+      </div>
+    </div>
+
+    <!-- Summary Banner -->
+    <div class="summary-banner">
+      <div class="summary-icon">📡</div>
+      <div class="summary-text">
+        <div class="summary-label">Today's Overview · 今日综述</div>
+        <div class="summary-content">
+          MEPC 84落幕，净零框架"保留火种"但分歧犹存；山东京杭运河105艘新能源船队形成规模，"船电分离"模式跑通经济账；海事局绿色转型意见落地，国际合规与国内市场双线推进正成为今年主旋律。
+        </div>
+      </div>
+    </div>
+
+    <!-- Section label -->
+    <div class="section-label">— Today's News · 今日要闻 —</div>
+
+    <!-- Card 1: MEPC 84 结果 -->
+    <div class="news-card card-1">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-num">01</div>
+          <div class="card-title">MEPC 84落幕：净零框架"存活"，美国强硬反对，9月继续谈</div>
+        </div>
+        <div class="card-summary">
+          国际海事组织（IMO）海洋环境保护委员会第84届会议（MEPC 84）于5月1日在伦敦正式落幕，历时5天（4月27日—5月1日）。会议未就航运碳定价达成最终协议，但净零框架（NZF）作为唯一谈判基础得以保留。
+        </div>
+        <ul class="detail-list">
+          <li>净零框架经历"搁置一年"后重回谈判轨道，但核心分歧仍在碳定价机制</li>
+          <li>支持方：欧盟、英国、澳大利亚、加拿大，力推碳定价</li>
+          <li>反对方：美国、沙特、阿联酋，美国警告将带来"反竞争和通胀效果"</li>
+          <li>另一重大成果：批准东北大西洋排放控制区（ECA），覆盖格陵兰、冰岛、英法等，2028年正式实施</li>
+          <li>后续：9月/11月召开跨会期工作组，MEPC 85定于12月</li>
+        </ul>
+        <div class="highlight-box">
+          🗓️ 关键时间表：9月1-4日温室气体工作组第一次会议 → 11月第二次会议 → 12月MEPC 85，届时须形成阶段性决议
+        </div>
+        <div class="why-care">
+          <span class="why-care-label">💡 为何关注</span>
+          IMO净零框架是影响全球船东燃料选择的核心合规信号。谈判越拖延，绿色甲醇/氨/LNG的不确定性就越高，但已订购替代燃料船的中国船企风险相对可控——中国船企已在83%的替代燃料新船市场占据先机，合规收紧只会加速订单向中国转移。
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="category-tag">🌐 国际动态</span>
+        <span class="source-tag">📰 海事服务网CNSS · 2026-05-06</span>
+        <span class="source-tag">📰 驗船中心 · 2026-05-05</span>
+      </div>
+    </div>
+
+    <!-- Card 2: 山东新能源船队 -->
+    <div class="news-card card-2">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-num">02</div>
+          <div class="card-title">山东京杭运河：105艘新能源船成规模运营，"船电分离"跑通经济账</div>
+        </div>
+        <div class="card-summary">
+          5月5日，京杭运河济宁龙拱港凌晨灯火通明——LNG动力船"济宁港航6017"满载煤炭启航徐州，纯电动力船"济宁港航6022"靠岸充电。山东融汇集团在京杭大运河运营新能源船舶已达105艘，计划2026年再下水200艘。
+        </div>
+        <ul class="detail-list">
+          <li>"船电分离"创新模式：买裸机+租电池，船价直降250万，首付减少75万元</li>
+          <li>月运营成本对比：纯电船（船电分离）3.26万/月，柴油船4.21万/月，优势明显</li>
+          <li>换电效率：标准化集装箱电池，15分钟快速吊装换电</li>
+          <li>百公里耗电从1800度降至1500度，新设计目标1200度以下</li>
+          <li>痛点：跨省至江苏、安徽段充电网络尚未完全打通，存在"断链"风险</li>
+        </ul>
+        <div class="highlight-box">
+          ⚡ 山东2025年已成全国首批通过CCS全流程检验并获国家补贴的内河LNG船省份，是内河绿色转型的排头兵
+        </div>
+        <div class="why-care">
+          <span class="why-care-label">💡 为何关注</span>
+          内河电动船最大痛点是"越大续航越贵"。"船电分离"模式把250万电池成本从买船变成租赁，彻底改变了准入门槛，与新能源汽车的"换电+租电"路径高度相似——这是电动内河货船从"政策示范"走向"市场跑通"的关键拐点。
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="category-tag">🏭 市场动态</span>
+        <span class="source-tag">📰 大众新闻·新黄河 · 2026-05-06</span>
+      </div>
+    </div>
+
+    <!-- Card 3: 宁远电鹏试航 -->
+    <div class="news-card card-3">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-num">03</div>
+          <div class="card-title">"宁远电鹏"5月试航在即，纯电动万吨级海船迈向规模化运营</div>
+        </div>
+        <div class="card-summary">
+          继全球最大万吨级纯电集装箱船"宁远电鲲"于4月15日首航，其姊妹船"宁远电鹏"计划于本月（2026年5月）开始试航、6月交付。两艘"电鲲级"巨轮全部投运后，将在固定航线形成首支万吨级纯电商业船队。
+        </div>
+        <ul class="detail-list">
+          <li>"宁远电鲲"：4月15日从宁波舟山港首航，目前已进入正式商业运营</li>
+          <li>船舶数据：总长127.8米，可装载742标箱，总储电量约2万度（相当于300辆家用电车电池总量）</li>
+          <li>每年可节约燃油约580吨，减少CO₂排放超1400吨</li>
+          <li>"宁远电鹏"：同款船型，5月试航、6月交付，姊妹船批量化是里程碑节点</li>
+          <li>建造方：江西江新造船有限公司；运营方：宁波远洋运输股份有限公司</li>
+        </ul>
+        <div class="highlight-box">
+          🚢 截至2025年底，中国海上和内河新能源清洁能源船舶已达1600余艘，总体规模居世界前列
+        </div>
+        <div class="why-care">
+          <span class="why-care-label">💡 为何关注</span>
+          从单艘实验到双船组队规模化运营，是技术验证到商业复制的质变节点。"宁远电鹏"6月交付意味着中国将在年中拥有全球最大的万吨级纯电集装箱船队，示范意义超越技术本身——海船电动化已从"不可能"变为"可复制"。
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="category-tag">⚡ 技术进展</span>
+        <span class="source-tag">📰 新浪财经 · 2026-04-23</span>
+        <span class="source-tag">📰 新华网浙江 · 2026-04-15</span>
+      </div>
+    </div>
+
+    <!-- Card 4: 海事局绿色转型意见 -->
+    <div class="news-card card-4">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-num">04</div>
+          <div class="card-title">海事局发文：2030年国际船碳排放强度降15%，四大体系全面建设</div>
+        </div>
+        <div class="card-summary">
+          交通运输部海事局于4月28日正式发布《关于推动航运绿色低碳转型发展的意见》，设立2030年核心量化目标：国际航行船舶碳排放强度相比2025年下降不低于15%，同步配套五大专项体系建设。
+        </div>
+        <ul class="detail-list">
+          <li>目标：国际航行船舶碳排放强度2030年较2025年降低≥15%</li>
+          <li>五大体系：技术规范体系、碳排放管理体系、安全监管制度体系、船员培训发证体系、绿色燃料加注标准体系</li>
+          <li>四大工作领域：政策法规、船舶绿色转型、产业协同要素供给、安全底线</li>
+          <li>推动老旧营运船舶更新，支持新能源清洁能源船舶大规模应用</li>
+          <li>将绿色航运纳入国际规则制定，增强中国在IMO谈判中的话语权</li>
+        </ul>
+        <div class="highlight-box">
+          📋 这是继4月10日《绿色智能船舶技术规范体系建设行动计划（2026-2030年）》后，海事局的第二份绿色转型配套文件，两文件形成"规范+政策"双轮驱动
+        </div>
+        <div class="why-care">
+          <span class="why-care-label">💡 为何关注</span>
+          2030年降碳15%不是概念，它将直接触发"以旧换新"的政策加速与EU ETS的合规压力联动。尤其是"船员培训发证"和"绿色燃料加注标准"两大体系，是长期阻碍新能源船舶规模化的软性瓶颈，政策现在正式"填坑"。
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="category-tag">📋 政策动态</span>
+        <span class="source-tag">📰 交通运输部·海事局 · 2026-04-28</span>
+      </div>
+    </div>
+
+    <!-- Card 5: 创新19号绿色船队成型 -->
+    <div class="news-card card-5">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-num">05</div>
+          <div class="card-title">甲醇江海直达船队进入交付期：5艘"创新系列"陆续投运，减排超90%</div>
+        </div>
+        <div class="card-summary">
+          国内首艘甲醇单一燃料江海直达船"创新19"轮于今年2月完成首航，减排超90%。其余4艘姊妹船计划于2026年5月前陆续投入运营，标志着国内首支甲醇江海直达绿色船队正式成型，开启长三角及长江经济带的绿色江海联运新时代。
+        </div>
+        <ul class="detail-list">
+          <li>"创新19"轮：15000吨级，甲醇单一燃料动力，2月14日成功首航</li>
+          <li>减排数据：相比传统燃油，CO₂降超90%，NOₓ大幅削减</li>
+          <li>5艘船批次共建，由武昌造船3个月快速建造完成</li>
+          <li>加注方案：宁波北仑配套甲醇加注基础设施已建成</li>
+          <li>覆盖航线：长三角海港至长江内河沿线港口，江海直达无需换船</li>
+        </ul>
+        <div class="highlight-box">
+          🌿 "创新19"轮是全球唯一15000吨级甲醇单一燃料江海直达船，也是CCS颁发甲醇单燃料证书以来的最大内河/近海船型
+        </div>
+        <div class="why-care">
+          <span class="why-care-label">💡 为何关注</span>
+          5艘船队成型意味着从"单点验证"到"商业船队"的跨越。甲醇江海直达船型填补了远洋甲醇船与内河电动船之间的中间地带，是长三角"江海联运"绿色化的核心载体。此外，武昌造船3个月建造速度也展示了中国绿色船型量产能力。
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="category-tag">🏭 企业动态</span>
+        <span class="source-tag">📰 CCTV · 2026-02-14</span>
+        <span class="source-tag">📰 百度百科（持续更新）</span>
+      </div>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="conclusion">
+      <div class="conclusion-quote">
+        今日要闻背后，一条主线清晰浮现：<strong>国际合规收紧（MEPC 84）</strong> 倒逼 <strong>国内规范加速落地（海事局双文件）</strong>，而 <strong>山东105艘船队规模化运营</strong>、<strong>"宁远电鹏"即将下海</strong>、<strong>"创新系列"批量交付</strong>，则用真实运营数据证明——中国新能源船舶已跨越"示范展示"阶段，正式进入<strong>规模化商业复制</strong>轨道。
+      </div>
+      <div class="data-source">
+        数据来源：海事服务网CNSS、大众新闻（腾讯）、新华网浙江频道、新浪财经、交通运输部海事局官网 | 搜索截至 2026年5月6日 15:00
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-bar">
+      <span class="nav-label">← 往期日报</span>
+      <div class="nav-links">
+        <a href="新能源船舶日报_20260413.html" class="nav-link">← 2026-04-13</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
