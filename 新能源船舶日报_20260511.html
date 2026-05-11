@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新能源船舶日报 · 2026年5月11日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #040d1a;
+      --bg-card: rgba(10, 22, 45, 0.85);
+      --bg-card-hover: rgba(14, 28, 58, 0.95);
+      --accent-blue: #00c6ff;
+      --accent-cyan: #0ff0fc;
+      --accent-teal: #00e5c4;
+      --text-primary: #e8f4ff;
+      --text-secondary: #8ba8cc;
+      --text-muted: #4a6a90;
+      --border-subtle: rgba(0, 198, 255, 0.15);
+      --glow: 0 0 20px rgba(0, 198, 255, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Star field background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(0, 60, 130, 0.35) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 90%, rgba(0, 100, 80, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(0, 40, 90, 0.5) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 50px 0 30px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 40px;
+    }
+
+    .header-badge {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      border: 1px solid rgba(0, 229, 196, 0.3);
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .header h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #e8f4ff 0%, var(--accent-blue) 50%, var(--accent-teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+
+    .header-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+      letter-spacing: 1px;
+    }
+
+    .header-date {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Summary strip */
+    .summary-strip {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+      padding: 16px 20px;
+      background: rgba(0, 198, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+    }
+
+    .summary-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .summary-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+      flex-shrink: 0;
+    }
+
+    /* News cards */
+    .news-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .news-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--glow), 0 12px 40px rgba(0, 0, 0, 0.4);
+      background: var(--bg-card-hover);
+    }
+
+    .card-stripe {
+      height: 3px;
+      width: 100%;
+    }
+
+    .card-1 .card-stripe { background: linear-gradient(90deg, #00c6ff, #0ff0fc); }
+    .card-2 .card-stripe { background: linear-gradient(90deg, #00e5c4, #00c6ff); }
+    .card-3 .card-stripe { background: linear-gradient(90deg, #4facfe, #00c6ff); }
+    .card-4 .card-stripe { background: linear-gradient(90deg, #a18cd1, #fbc2eb); }
+    .card-5 .card-stripe { background: linear-gradient(90deg, #f093fb, #f5576c); }
+
+    .card-body {
+      padding: 24px 28px 20px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .card-num {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-muted);
+      line-height: 1;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .card-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--text-primary);
+    }
+
+    .card-summary {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      padding-left: 44px;
+    }
+
+    .detail-list {
+      list-style: none;
+      padding-left: 44px;
+      margin-bottom: 16px;
+    }
+
+    .detail-list li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(0, 198, 255, 0.06);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .detail-list li::before {
+      content: '›';
+      color: var(--accent-teal);
+      font-size: 16px;
+      line-height: 1.5;
+      flex-shrink: 0;
+    }
+
+    .detail-list li:last-child {
+      border-bottom: none;
+    }
+
+    .highlight-box {
+      margin: 14px 0 14px 44px;
+      padding: 10px 14px;
+      background: rgba(0, 198, 255, 0.08);
+      border-left: 3px solid var(--accent-cyan);
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      color: var(--accent-cyan);
+      line-height: 1.7;
+    }
+
+    .why-care {
+      margin: 14px 0 0 44px;
+      padding: 12px 14px;
+      background: rgba(0, 229, 196, 0.06);
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .why-care-label {
+      display: block;
+      font-weight: 700;
+      color: var(--accent-teal);
+      margin-bottom: 4px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .card-footer {
+      padding: 12px 28px;
+      border-top: 1px solid rgba(0, 198, 255, 0.08);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .category-tag {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      background: rgba(0, 198, 255, 0.1);
+      color: var(--accent-blue);
+      border: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .source-tag {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .source-tag a {
+      color: var(--accent-teal);
+      text-decoration: none;
+    }
+
+    .source-tag a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer nav */
+    .footer-nav {
+      margin-top: 50px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      color: var(--accent-blue);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-cyan);
+    }
+
+    .footer-credits {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .header h1 { font-size: 1.7rem; }
+      .card-body { padding: 18px 16px 14px; }
+      .card-footer { padding: 10px 16px; }
+      .card-summary, .detail-list, .highlight-box, .why-care { padding-left: 0; margin-left: 0; }
+      .card-num { font-size: 22px; }
+      .card-title { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-badge">🚢 GREEN SHIP DAILY</div>
+    <h1>新能源船舶日报</h1>
+    <div class="header-subtitle">技术 · 政策 · 市场 · 企业动态</div>
+    <div class="header-date">2026年5月11日（周一）</div>
+  </header>
+
+  <!-- Summary strip -->
+  <div class="summary-strip">
+    <div class="summary-item"><div class="summary-dot"></div>全球首艘2.4万TEU甲醇动力巨轮命名</div>
+    <div class="summary-item"><div class="summary-dot" style="background:var(--accent-teal)"></div>中国Q1绿色船舶订单占比80.2%</div>
+    <div class="summary-item"><div class="summary-dot" style="background:#a18cd1"></div>扬州：多型全球首制绿色船舶批量交付</div>
+    <div class="summary-item"><div class="summary-dot" style="background:#f093fb"></div>山东运河电动化：经济账跑通，6万艘老船待换</div>
+    <div class="summary-item"><div class="summary-dot" style="background:#fbc2eb"></div>"宁远电鹏"本月试航，万吨纯电船队成型在即</div>
+  </div>
+
+  <!-- Card 1: 全球首艘2.4万TEU甲醇动力集装箱船 -->
+  <div class="news-card card-1">
+    <div class="card-stripe"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num">01</div>
+        <div class="card-title">全球首艘2.4万TEU甲醇动力集装箱船"OOCL WISDOM"命名，6月交付亚欧航线</div>
+      </div>
+      <div class="card-summary">
+        5月8日，全球首艘24,168 TEU甲醇双燃料超大型集装箱船"OOCL WISDOM（东方智慧）"在南通中远海运川崎举行命名仪式，计划6月正式交付东方海外（OOCL），首航亚欧航线。这是全球最大甲醇动力集装箱船，标志着超大型集装箱船绿色化进入新纪元。
+      </div>
+      <ul class="detail-list">
+        <li>船长399.99米，型宽61.3米，载重22.5万吨，服务航速22.7节</li>
+        <li>配备全球最大甲醇双燃料主机、辅机与锅炉，支持甲醇/传统燃油灵活切换</li>
+        <li>使用绿色甲醇后，单船每年可减少约<strong>15万吨CO₂排放</strong></li>
+        <li>该系列12艘船，南通中远海运川崎承建7艘，系列3号船已进坞</li>
+        <li>截至目前，中远海控已订造双燃料动力集装箱船<strong>70艘</strong>，7艘在运</li>
+      </ul>
+      <div class="highlight-box">
+        🌍 里程碑意义：这是继甲醇中小型船之后，甲醇动力技术首次成功搭载全球最大型集装箱船，标志着主力远洋货运船队进入甲醇时代
+      </div>
+      <div class="why-care">
+        <span class="why-care-label">💡 为何关注</span>
+        超大型集装箱船占全球航运碳排放约20%。"东方智慧"的商业运营将提供真实航线的甲醇燃料效率与成本数据，为后续系列船及全球竞争对手提供重要参照，直接影响甲醇燃料供应链的投资节奏。
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="category-tag">⚡ 企业动态</span>
+      <span class="source-tag">📰 <a href="https://finance.sina.com.cn/roll/2026-05-09/doc-inhxhkfi1543991.shtml" target="_blank">新浪财经 · 2026-05-09</a></span>
+    </div>
+  </div>
+
+  <!-- Card 2: 中国造船业Q1数据 -->
+  <div class="news-card card-2">
+    <div class="card-stripe"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num">02</div>
+        <div class="card-title">中国造船Q1三大指标全球领跑，绿色船舶新接订单份额突破80%</div>
+      </div>
+      <div class="card-summary">
+        工信部最新数据显示：2026年一季度，中国造船完工量1568万载重吨（+46%，全球份额57.3%），新接订单5953万载重吨（+195%，全球份额84.9%），手持订单32230万载重吨（+43.6%，份额69.8%）。绿色船舶成最大亮点——新接绿色船舶订单全球份额达<strong>80.2%</strong>。
+      </div>
+      <ul class="detail-list">
+        <li>新接订单同比暴增近2倍，创历史同期新高</li>
+        <li>绿色船舶呈"全域覆盖、技术领跑、批量交付"三大特征</li>
+        <li>LNG、LPG、甲醇、乙烷等多类双燃料船和电动船密集交付下线</li>
+        <li>代表船型："鲲"系列15000箱甲醇双燃料船、"天山"号17.4万立方米LNG船、"创新19"轮首艘单一甲醇燃料江海直达散货船</li>
+        <li>"创新19"轮CO₂排放减少90%，硫氧化物近零排放</li>
+      </ul>
+      <div class="highlight-box">
+        📊 在全球18种主要船型中，中国有15种新接订单居全球首位；超大型原油船、散货船、万箱级集装箱船市场份额均超90%
+      </div>
+      <div class="why-care">
+        <span class="why-care-label">💡 为何关注</span>
+        绿色船舶订单80%+份额意味着全球航运脱碳几乎"绑定"了中国造船能力。下半年美国关税压力与汇率波动或带来短暂扰动，但绿色转型订单的技术壁垒会持续强化中国的竞争护城河。
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="category-tag">📈 市场动态</span>
+      <span class="source-tag">📰 <a href="https://finance.sina.com.cn/jjxw/2026-05-09/doc-inhxhcxp3771131.shtml" target="_blank">新浪财经·工信部发布 · 2026-05-09</a></span>
+    </div>
+  </div>
+
+  <!-- Card 3: 扬州绿色船舶 -->
+  <div class="news-card card-3">
+    <div class="card-stripe"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num">03</div>
+        <div class="card-title">扬州向新向绿："创新19"轮等多型全球首制绿色船舶接连交付</div>
+      </div>
+      <div class="card-summary">
+        2026年5月11日，新华社报道扬州造船绿色转型成绩：金陵船厂、扬州中远海运重工、润扬船业等主力船厂在甲醇双燃料、纯电动、特种船等领域持续突破，多艘全球首制船型实现批量交付，订单已排至2029年。
+      </div>
+      <ul class="detail-list">
+        <li>"安吉安盛"轮：全球最大、能效最佳低碳智能汽车滚装船（9500车位，预留甲醇动力）</li>
+        <li>比亚迪"深圳号"：9200车位LNG双燃料汽车船，搭载比亚迪箱式电池组</li>
+        <li>"中远海运洋浦"轮：全球首制16000TEU甲醇双燃料集装箱船，11000立方米超大甲醇储舱，亚洲-北美单程无需补燃</li>
+        <li>"中远海运绿水01/02"：全球最大江海直达<strong>纯电动</strong>集装箱船（700TEU），"以换代充"模式</li>
+        <li>扬州一季度造船完工225万载重吨，同比+25.9%；在手订单已排至2029年</li>
+      </ul>
+      <div class="highlight-box">
+        🏭 金陵船厂汽车滚装船交付数量居全球第一；中国火箭回收船"星际归航"轮也在扬州交付，回收甲板精度误差≤1厘米
+      </div>
+      <div class="why-care">
+        <span class="why-care-label">💡 为何关注</span>
+        扬州是中国绿色船舶技术输出的典型案例：从甲醇、LNG到纯电动，多条技术路线并行突破，且每条路线均拿到"全球首制"称号——这不是偶然，而是系统性产学研协作的结果，值得关注其如何推动后续批量复制。
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="category-tag">🏭 企业动态</span>
+      <span class="source-tag">📰 <a href="https://finance.sina.com.cn/wm/2026-05-11/doc-inhxnscv0643444.shtml" target="_blank">新浪财经·新华社 · 2026-05-11</a></span>
+    </div>
+  </div>
+
+  <!-- Card 4: 山东运河电动化 -->
+  <div class="news-card card-4">
+    <div class="card-stripe"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num">04</div>
+        <div class="card-title">山东运河"电化革命"：经济账跑通，6万艘老船待换绿色"芯"</div>
+      </div>
+      <div class="card-summary">
+        京杭大运河山东段的绿色转型正迎来关键节点：目前运营中的5艘纯电动货船累计航行1.7万公里、运送超15万吨货物；融汇集团运营新能源船舶105艘、年内计划再下水200艘。但面对运河上约6万艘老旧柴油船，绿色置换才刚刚启动。
+      </div>
+      <ul class="detail-list">
+        <li>纯电船月运营成本（船电分离模式）：3.26万元 vs 柴油船4.21万元，降幅22.6%</li>
+        <li>单船年减排燃油70余吨，全程零排放；5艘在营电动船全年可减排CO₂约1000吨</li>
+        <li>宁德时代"运河绿芯"：磷酸铁锂电池3.6MWh，续航230公里，换电仅需15分钟</li>
+        <li>AI能耗优化：百公里耗电从1800度→1500度，新设计目标1200度以下</li>
+        <li>充换电网络已建成：龙拱港、梁山港兆瓦级换电站；规划新建15处充换电站</li>
+        <li>痛点：跨省充电网络断链，电船出省受限，亟需跨省标准互认</li>
+      </ul>
+      <div class="highlight-box">
+        ⚡ "船电分离"创新：电池造价600万元占船价1/3，由第三方持有出租，船东只需按度计费，彻底降低准入门槛——与新能源汽车换电模式如出一辙
+      </div>
+      <div class="why-care">
+        <span class="why-care-label">💡 为何关注</span>
+        全国内河约30万艘传统柴油船，其中运河上6万艘船龄10-15年的老船是最近的替换目标。"船电分离"模式若能全面推广，将带来数百亿换船市场，宁德时代、国轩等动力电池企业的内河市场想象空间远超当前估计。
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="category-tag">📈 市场动态</span>
+      <span class="source-tag">📰 <a href="https://k.sina.cn/article_2359441912_8ca239f8020057j8m.html" target="_blank">新浪财经·大众日报 · 2026-05-09</a></span>
+      <span class="source-tag">📰 <a href="https://finance.sina.com.cn/roll/2026-05-06/doc-inhwxnur5959124.shtml" target="_blank">新浪财经 · 2026-05-06</a></span>
+    </div>
+  </div>
+
+  <!-- Card 5: 宁远电鹏5月试航 -->
+  <div class="news-card card-5">
+    <div class="card-stripe"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num">05</div>
+        <div class="card-title">"宁远电鹏"本月试航、6月交付，全球最大万吨纯电集装箱船队即将成型</div>
+      </div>
+      <div class="card-summary">
+        继"宁远电鲲"4月15日首航后，其姊妹船"宁远电鹏"计划于本月（2026年5月）开始试航，6月正式交付投运。两船全部投运后，将在宁波舟山港至嘉兴港乍浦港区的固定航线上形成全球首支万吨级纯电动集装箱船商业船队。
+      </div>
+      <ul class="detail-list">
+        <li>"宁远电鲲"规格：总长127.8米，可装载742标箱，总储电量约2万度</li>
+        <li>每年节约燃油约580吨，减少CO₂排放超1400吨</li>
+        <li>两船均由江西江新造船建造，宁波远洋运输运营</li>
+        <li>宁波远洋目前已拥有绿色节能船舶32艘、智能船舶19艘</li>
+        <li>截至2025年底，中国海上和内河新能源清洁能源船舶已达<strong>1600余艘</strong></li>
+      </ul>
+      <div class="highlight-box">
+        🚢 节点意义：从单艘实验到双船组队规模化运营，是技术验证到商业复制的质变节点。万吨级纯电海船"组队"运营在全球尚属首次
+      </div>
+      <div class="why-care">
+        <span class="why-care-label">💡 为何关注</span>
+        "宁远电鲲"首航一个月内，"宁远电鹏"即将跟进——批量化节奏比外界预期更快。这意味着国内已有成熟的电动海船设计-建造-运营全链条，下一步关注的焦点是：后续订单何时从"两艘"扩展至"两位数"。
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="category-tag">⚡ 技术进展</span>
+      <span class="source-tag">📰 <a href="https://www.xinhuanet.com/20260415/bad51c86ab14452d819cbb2c9f48abdd/c.html" target="_blank">新华网 · 2026-04-15</a></span>
+      <span class="source-tag">📰 <a href="https://jtyst.zj.gov.cn/col/col1229327542/art/2026/art_862a4f98cbc54485943b11a37004361e.html" target="_blank">浙江交通厅 · 2026-04-16</a></span>
+    </div>
+  </div>
+
+  <!-- Footer Nav -->
+  <nav class="footer-nav">
+    <a href="新能源船舶日报_20260506.html" class="nav-link">← 2026-05-06</a>
+    <span style="font-size:12px;color:var(--text-muted)">新能源船舶日报 · 每日更新</span>
+  </nav>
+
+  <p class="footer-credits">数据来源：新浪财经、新华网、浙江交通厅、大众日报 | 整理：AI自动日报系统 | 2026-05-11</p>
+
+</div>
+</body>
+</html>
