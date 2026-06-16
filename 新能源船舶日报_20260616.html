@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新能源船舶日报 · 2026年6月16日</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #040d1a;
+      --bg-card: rgba(10, 22, 45, 0.85);
+      --bg-card-hover: rgba(14, 28, 58, 0.95);
+      --accent-blue: #00c6ff;
+      --accent-cyan: #0ff0fc;
+      --accent-teal: #00e5c4;
+      --text-primary: #e8f4ff;
+      --text-secondary: #8ba8cc;
+      --text-muted: #4a6a90;
+      --border-subtle: rgba(0, 198, 255, 0.15);
+      --glow: 0 0 20px rgba(0, 198, 255, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* 星空背景 */
+    .starfield {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      background:
+        radial-gradient(1.5px 1.5px at 20% 15%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 40% 35%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1.2px 1.2px at 60% 55%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 80% 75%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1.5px 1.5px at 10% 85%, rgba(0,198,255,0.6), transparent),
+        radial-gradient(1px 1px at 70% 10%, rgba(0,255,200,0.5), transparent),
+        radial-gradient(1.2px 1.2px at 90% 45%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 30% 65%, rgba(0,198,255,0.4), transparent),
+        radial-gradient(1.5px 1.5px at 50% 90%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 15% 40%, rgba(0,240,252,0.5), transparent),
+        linear-gradient(180deg, #040d1a 0%, #0a1a35 40%, #0d2248 70%, #040d1a 100%);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* 头部 */
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    }
+
+    .header .icon { font-size: 48px; margin-bottom: 16px; }
+
+    .header h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan), var(--accent-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+    }
+
+    .header .date {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      letter-spacing: 4px;
+    }
+
+    .header .subtitle {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 8px;
+    }
+
+    /* 新闻卡片 */
+    .news-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 28px 30px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: default;
+    }
+
+    .news-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent-blue), var(--accent-teal));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .news-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(0, 198, 255, 0.35);
+      box-shadow: var(--glow);
+      transform: translateY(-2px);
+    }
+
+    .news-card:hover::before { opacity: 1; }
+
+    .news-card .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    .tag-tech { background: rgba(0, 198, 255, 0.15); color: var(--accent-blue); border: 1px solid rgba(0, 198, 255, 0.3); }
+    .tag-policy { background: rgba(0, 229, 196, 0.15); color: var(--accent-teal); border: 1px solid rgba(0, 229, 196, 0.3); }
+    .tag-market { background: rgba(255, 200, 0, 0.15); color: #ffc800; border: 1px solid rgba(255, 200, 0, 0.3); }
+    .tag-enterprise { background: rgba(200, 100, 255, 0.15); color: #c864ff; border: 1px solid rgba(200, 100, 255, 0.3); }
+    .tag-milestone { background: rgba(255, 100, 100, 0.15); color: #ff6464; border: 1px solid rgba(255, 100, 100, 0.3); }
+
+    .news-card h2 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .news-card .summary {
+      font-size: 0.92rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .news-card .summary strong {
+      color: var(--accent-cyan);
+      font-weight: 500;
+    }
+
+    .news-card .meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .news-card .source {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .news-card .link {
+      font-size: 0.78rem;
+      color: var(--accent-blue);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .news-card .link:hover {
+      border-bottom-color: var(--accent-blue);
+    }
+
+    /* 数据亮点 */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(0, 198, 255, 0.08), rgba(0, 229, 196, 0.08));
+      border: 1px solid rgba(0, 198, 255, 0.2);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+    }
+
+    .highlight-box h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1rem;
+      color: var(--accent-cyan);
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+
+    .highlight-box .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .data-item {
+      text-align: center;
+      padding: 12px;
+    }
+
+    .data-item .value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .data-item .label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* 底部导航 */
+    .footer-nav {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .footer-nav a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: var(--accent-cyan); }
+
+    .footer-copy {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .container { padding: 24px 14px 40px; }
+      .header h1 { font-size: 1.6rem; }
+      .news-card { padding: 20px 18px; }
+      .news-card h2 { font-size: 1.05rem; }
+      .data-item .value { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="starfield"></div>
+  <div class="container">
+
+    <!-- 头部 -->
+    <div class="header">
+      <div class="icon">🚢</div>
+      <h1>新能源船舶日报</h1>
+      <div class="date">2026 年 6 月 16 日 · 星期二</div>
+      <div class="subtitle">技术进展 · 政策动态 · 市场动态 · 企业动态</div>
+    </div>
+
+    <!-- 数据亮点 -->
+    <div class="highlight-box">
+      <h3>📊 本期核心数据</h3>
+      <div class="data-grid">
+        <div class="data-item">
+          <div class="value">24168 TEU</div>
+          <div class="label">东方智慧轮载箱量</div>
+        </div>
+        <div class="data-item">
+          <div class="value">560 kWh</div>
+          <div class="label">船网互动放电电量</div>
+        </div>
+        <div class="data-item">
+          <div class="value">27.1万m³</div>
+          <div class="label">全球最大LNG船容积</div>
+        </div>
+        <div class="data-item">
+          <div class="value">93000m³</div>
+          <div class="label">全球首单VLAC容积</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新闻1：东方智慧轮试航 -->
+    <div class="news-card">
+      <span class="tag tag-milestone">里程碑</span>
+      <h2>全球首艘2.4万TEU甲醇双燃料集装箱船"东方智慧"轮完成试航</h2>
+      <div class="summary">
+        6月9日，由南通中远海运川崎建造的全球首艘<strong>24000TEU甲醇双燃料集装箱船</strong>"东方智慧"轮圆满完成为期<strong>26天</strong>的海上综合性能试验，安全返航。该轮总长399.99米，型宽61.3米，最大载箱量24168标准箱，配备全球最大规格甲醇双燃料主机、辅机与锅炉，使用绿色甲醇时实现全生命周期碳中和，单船预计年减碳<strong>15万吨</strong>。同系列共7艘，本船为首制船，各项试验均达到设计指标和国际公约要求。
+      </div>
+      <div class="meta">
+        <span class="source">来源：南通海事局 / 经济日报</span>
+        <a class="link" href="https://www.js.msa.gov.cn/art/2026/6/11/art_278_1601944.html" target="_blank">查看详情 →</a>
+      </div>
+    </div>
+
+    <!-- 新闻2：船网互动 -->
+    <div class="news-card">
+      <span class="tag tag-tech">技术突破</span>
+      <h2>全国首次"船网互动"试验在连云港完成，电动船舶成"移动充电宝"</h2>
+      <div class="summary">
+        6月11日，江苏连云港纯电拖轮<strong>"云港电拖九号"</strong>成功向电网反向送电，实现我国首次新能源电动船舶与电网双向互动。试验持续<strong>7小时</strong>，放电功率80千瓦，总放电560千瓦时，攻克了高湿高盐海洋环境下大功率充放电稳定控制等世界性难题。连云港已投运4艘纯电拖轮，预计移动储能集群容量达<strong>20000千瓦时</strong>，可支撑5台大型岸桥同时运转。该技术让船舶变为港口灵活可调的"移动充电宝"，填补国内技术空白。
+      </div>
+      <div class="meta">
+        <span class="source">来源：央视网 / 江苏省人民政府</span>
+        <a class="link" href="https://news.cctv.com/2026/06/11/ARTIGXorrNZogzZwieEgTCrd260611.shtml" target="_blank">查看详情 →</a>
+      </div>
+    </div>
+
+    <!-- 新闻3：LNG船开工 -->
+    <div class="news-card">
+      <span class="tag tag-enterprise">企业动态</span>
+      <h2>全球最大27.1万立方米LNG运输船在沪东中华开工建造</h2>
+      <div class="summary">
+        6月9日，全球首批次、世界最大<strong>27.1万立方米QC-Max型</strong>超大型LNG运输船在中船集团沪东中华造船正式开工。该船总长344米，搭载国产最新<strong>NO96 Super+薄膜围护系统</strong>，载货容积、节能环保、航行安全等关键性能实现全面迭代升级，计划2028年交付。目前中国LNG船全球市占率已突破30%，企业在手订单近60艘，排期至2030年，进一步巩固我国高端船舶制造全球领先地位。
+      </div>
+      <div class="meta">
+        <span class="source">来源：央视网 / 上观新闻</span>
+        <a class="link" href="https://news.cctv.com/2026/06/09/ARTIyFl4aKtrW8Awu24o96kt260609.shtml" target="_blank">查看详情 →</a>
+      </div>
+    </div>
+
+    <!-- 新闻4：VLAC交付 -->
+    <div class="news-card">
+      <span class="tag tag-milestone">里程碑</span>
+      <h2>江南造船交付全球首艘93000方超大型液氨运输船"IVY COVE"号</h2>
+      <div class="summary">
+        6月10日，江南造船为新加坡EPS船东打造的<strong>93000立方米超大型液氨运输船（VLAC）</strong>"IVY COVE"号正式命名交付。这是该尺寸船型<strong>全球首单</strong>，也是国内首艘投入运营的同类型液氨运输船，由江南造船百分百自主研发建造。液氨为零碳清洁燃料，也是绿氢储运核心载体，可减少<strong>99%硫氧化物</strong>排放。该船的交付为全球绿色航运、清洁能源运输交出本土化中国方案。
+      </div>
+      <div class="meta">
+        <span class="source">来源：中国船舶集团 / 澎湃新闻</span>
+        <a class="link" href="https://m.thepaper.cn/newsDetail_forward_33350294" target="_blank">查看详情 →</a>
+      </div>
+    </div>
+
+    <!-- 新闻5：绿色航运保险升级 -->
+    <div class="news-card">
+      <span class="tag tag-policy">政策金融</span>
+      <h2>"绿色船舶保险共同体"升级为"绿色航运保险共同体"，风险保障超95亿元</h2>
+      <div class="summary">
+        6月12日，国家金融监督管理总局在2026陆家嘴论坛新闻发布会上宣布，推动<strong>"绿色船舶保险共同体"升级为"绿色航运保险共同体"</strong>，保障范围从单一船舶扩展至航运全产业链。截至2026年一季度末，已落地保障项目<strong>11个</strong>，风险保障金额超<strong>95亿元</strong>。本届陆家嘴论坛于6月17-18日召开，聚焦"全球治理倡议下的金融发展与合作"，绿色航运金融成为核心议题之一。
+      </div>
+      <div class="meta">
+        <span class="source">来源：证券时报 / 财联社</span>
+        <a class="link" href="https://www.egsea.com/news/detail/2301733.html" target="_blank">查看详情 →</a>
+      </div>
+    </div>
+
+    <!-- 新闻6：华电船电分离 -->
+    <div class="news-card">
+      <span class="tag tag-tech">商业模式</span>
+      <h2>华电湖北"船电分离"模式跑通经济账，"电化长江"迈入规模化前夜</h2>
+      <div class="summary">
+        华电湖北在长江中游率先打通绿色充换电航线，创新构建<strong>"船电分离 + 电池银行 + 车船一体"</strong>商业模式。武汉阳逻充换电站配备4个船舶充电工位和24个电动重卡充电设施，单次换电效率较传统直充提升<strong>20倍</strong>以上。华电湖北预计投资超<strong>200亿元</strong>，吸引社会投资约700亿元，规模化后年减碳<strong>1500万吨</strong>。已获批6个国家级/省部级试点项目，含国家首批车船网互动规模化应用试点。规划沿长江2700公里构建"一轴三线四核七片"全流域网络。
+      </div>
+      <div class="meta">
+        <span class="source">来源：中国经济网</span>
+        <a class="link" href="http://www.ce.cn/xwzx/gnsz/gdxw/202606/t20260615_3032633.shtml" target="_blank">查看详情 →</a>
+      </div>
+    </div>
+
+    <!-- 新闻7：前海新能源船试航 -->
+    <div class="news-card">
+      <span class="tag tag-enterprise">企业动态</span>
+      <h2>深圳前海"中欣301"新能源集装箱船即将入水试航</h2>
+      <div class="summary">
+        前海绿色智能船舶产业迎来重磅成果——<strong>"中欣301"新能源集装箱船</strong>全面进入总装与设备联调关键期，近期即将入水试航。目前前海已集聚<strong>百余家</strong>船舶上下游企业，涵盖整船制造、动力电池、电力推进、通信导航等产业链环节，瞄准新能源智能船舶新赛道，开展"场景应用+基础设施+制度创新+金融支撑"一揽子集成式创新，从"单点突破"迈向"生态成林"。
+      </div>
+      <div class="meta">
+        <span class="source">来源：深圳政府在线</span>
+        <a class="link" href="https://www.sz.gov.cn/cn/xxgk/zfxxgj/bmdt/content/post_12833059.html" target="_blank">查看详情 →</a>
+      </div>
+    </div>
+
+    <!-- 新闻8：国航远洋延期 -->
+    <div class="news-card">
+      <span class="tag tag-market">市场动态</span>
+      <h2>国航远洋2艘甲醇双燃料散货船延期至年底交付，融资币种变更美元</h2>
+      <div class="summary">
+        6月8日，国航远洋公告将"干散货船舶购置项目"完成日期从2026年6月30日调整至<strong>2026年12月31日</strong>，延期涉及2艘在建<strong>89000载重吨甲醇双燃料散货船</strong>，主要受全球供应链波动及技术验证周期延长影响。同时，两艘89000载重吨双燃料新能源散货船融资币种由人民币变更为美元，并协商变更建造地点。公司还有4艘甲醇双燃料散货船订单，计划下半年陆续交付，新船交付将直接提升绿色运力占比。
+      </div>
+      <div class="meta">
+        <span class="source">来源：新浪财经 / 经济观察报</span>
+        <a class="link" href="https://finance.sina.com.cn/stock/aigc/tzxm/2026-06-08/doc-iniatatq3775946.shtml" target="_blank">查看详情 →</a>
+      </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <div class="footer-nav">
+      <a href="新能源船舶日报_20260511.html">← 2026-05-11</a>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 新能源船舶日报 · 每日精选 · 数据驱动洞察
+    </div>
+
+  </div>
+</body>
+</html>
